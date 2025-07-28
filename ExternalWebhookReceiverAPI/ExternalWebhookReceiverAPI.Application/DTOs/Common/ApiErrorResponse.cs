@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ExternalWebhookReceiverAPI.Application.DTOs.Common
@@ -14,6 +15,8 @@ namespace ExternalWebhookReceiverAPI.Application.DTOs.Common
         public string Message { get; set; } = string.Empty;
         public string? TraceId { get; set; }
         public DateTime RequestTime { get; set; }
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? Details { get; set; }
     }
 }
