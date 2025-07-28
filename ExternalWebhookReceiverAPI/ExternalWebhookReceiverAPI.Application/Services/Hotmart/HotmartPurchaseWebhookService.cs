@@ -11,47 +11,47 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 {
     public class HotmartPurchaseWebhookService : IHotmartPurchaseWebhookService
     {
-        public async Task<string> HandlePurchaseApprovedService(HotmartWebhookDTO payload)
+        public async Task<HotmartWebhookDTO> HandlePurchaseApprovedService(HotmartWebhookDTO payload)
         {
-            return await Task.FromResult($"Evento recebido com sucesso. Payload: {payload}");
+            return await Task.FromResult(payload);
         }
 
-        public async Task<string> HandlePurchaseBilletPrintedService(HotmartWebhookDTO payload)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<string> HandlePurchaseCanceledService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseBilletPrintedService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<string> HandlePurchaseChargebackService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseCanceledService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
 
-        public Task<string> HandlePurchaseCompleteService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseChargebackService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<string> HandlePurchaseDelayedService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseCompleteService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<string> HandlePurchaseExpiredService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseDelayedService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<string> HandlePurchaseProtestService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseExpiredService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<string> HandlePurchaseRefundedService(HotmartWebhookDTO payload)
+        public Task<HotmartWebhookDTO> HandlePurchaseProtestService(HotmartWebhookDTO payload)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<HotmartWebhookDTO> HandlePurchaseRefundedService(HotmartWebhookDTO payload)
         {
             throw new NotImplementedException();
         }
