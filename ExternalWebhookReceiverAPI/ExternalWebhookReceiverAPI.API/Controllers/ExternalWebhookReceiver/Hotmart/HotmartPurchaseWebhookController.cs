@@ -1,5 +1,6 @@
 ﻿using ExternalWebhookReceiverAPI.API.Filters;
 using ExternalWebhookReceiverAPI.API.Helpers;
+using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Options;
@@ -27,12 +28,17 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-approved")]
         public async Task<IActionResult> PurchaseApprovedRoute([FromBody] HotmartWebhookDTO payload)
         {
-            var token = HttpContext.GetWebhookAuthToken("Hotmart1");
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
             if (string.IsNullOrEmpty(token))
                 throw new UnauthorizedAccessException("Token inválido ou ausente.");
 
             var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload);
-            return Ok(result);
+
+            ApiSuccessResponse response = ApiSuccessResponseFilter.CreateSuccessResponse(
+                "Compra aprovada com sucesso.", 
+                JsonSerializer.SerializeToElement(new { result }));
+
+            return Ok(response);
         }
 
         [WebhookAuth("Hotmart")]
