@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.Text.Json;
 
 namespace ExternalWebhookReceiverAPI.API.Filters
