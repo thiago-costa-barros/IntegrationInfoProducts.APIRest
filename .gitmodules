@@ -1,0 +1,3 @@
+[submodule "CommonSolution"]
+	path = CommonSolution
+	url = https://github.com/thiago-costa-barros/IntegrationInfoProducts.CommonSolution.git
