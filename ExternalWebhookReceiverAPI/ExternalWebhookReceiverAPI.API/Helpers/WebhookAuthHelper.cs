@@ -1,6 +1,4 @@
-﻿using Azure.Core;
-using ExternalWebhookReceiverAPI.Application.Options;
-using Microsoft.Extensions.Options;
+﻿using ExternalWebhookReceiverAPI.Application.Options;
 
 namespace ExternalWebhookReceiverAPI.API.Helpers
 {

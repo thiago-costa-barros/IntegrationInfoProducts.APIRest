@@ -1,13 +1,13 @@
-﻿using ExternalWebhookReceiverAPI.API.Filters;
+﻿using CommonSolution.Filters;
 using ExternalWebhookReceiverAPI.API.Helpers;
-using ExternalWebhookReceiverAPI.Application.DTOs.Common;
+using CommonSolution.DTOs;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Options;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
+using ExternalWebhookReceiverAPI.API.Filters;
 
 namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hotmart
 {
