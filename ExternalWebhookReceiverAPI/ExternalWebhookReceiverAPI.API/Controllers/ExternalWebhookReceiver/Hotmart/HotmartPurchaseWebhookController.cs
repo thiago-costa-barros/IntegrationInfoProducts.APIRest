@@ -30,7 +30,7 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         {
             var token = HttpContext.GetWebhookAuthToken("Hotmart");
             if (string.IsNullOrEmpty(token))
-                throw new UnauthorizedAccessException("Token inválido ou ausente.");
+                throw new UnauthorizedAccessException();
 
             var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload);
 
