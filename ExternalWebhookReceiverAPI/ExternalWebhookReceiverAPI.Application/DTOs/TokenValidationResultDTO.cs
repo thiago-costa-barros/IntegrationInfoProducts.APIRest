@@ -1,4 +1,4 @@
-﻿using ExternalWebhookReceiverAPI.Domain.Common.Enums;
+﻿using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
