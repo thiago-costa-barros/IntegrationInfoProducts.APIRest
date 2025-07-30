@@ -1,9 +1,13 @@
-﻿using ExternalWebhookReceiverAPI.API.Filters;
+﻿using CommonSolution.DTOs;
+using CommonSolution.Filters;
+using CommonSolution.Helpers;
+using ExternalWebhookReceiverAPI.API.Filters;
 using ExternalWebhookReceiverAPI.API.Helpers;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Options;
-using Microsoft.AspNetCore.Http;
+using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
+using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
@@ -27,12 +31,22 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-approved")]
         public async Task<IActionResult> PurchaseApprovedRoute([FromBody] HotmartWebhookDTO payload)
         {
-            var token = HttpContext.GetWebhookAuthToken("Hotmart1");
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
             if (string.IsNullOrEmpty(token))
-                throw new UnauthorizedAccessException("Token inválido ou ausente.");
+                throw new UnauthorizedAccessException();
 
             var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload);
-            return Ok(result);
+
+            var message = MessageHelper.FormatFromEnum(
+                enumValue: HotmartPurchaseEventType.PURCHASE_APPROVED,
+                template: HotmartMessages.PurchaseEventSuccess
+            );
+
+            ApiSuccessResponse response = ApiSuccessResponseFilter.CreateSuccessResponse(
+                message, 
+                JsonSerializer.SerializeToElement(new { result }));
+
+            return Ok(response);
         }
 
         [WebhookAuth("Hotmart")]
