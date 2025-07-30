@@ -1,13 +1,16 @@
-﻿using CommonSolution.Filters;
+﻿using CommonSolution.DTOs;
+using CommonSolution.Filters;
+using CommonSolution.Helpers;
+using ExternalWebhookReceiverAPI.API.Filters;
 using ExternalWebhookReceiverAPI.API.Helpers;
-using CommonSolution.DTOs;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Options;
+using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
+using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
-using ExternalWebhookReceiverAPI.API.Filters;
 
 namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hotmart
 {
@@ -34,8 +37,13 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
 
             var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload);
 
+            var message = MessageHelper.FormatFromEnum(
+                enumValue: HotmartPurchaseEventType.PURCHASE_APPROVED,
+                template: HotmartMessages.PurchaseEventSuccess
+            );
+
             ApiSuccessResponse response = ApiSuccessResponseFilter.CreateSuccessResponse(
-                "Compra aprovada com sucesso.", 
+                message, 
                 JsonSerializer.SerializeToElement(new { result }));
 
             return Ok(response);

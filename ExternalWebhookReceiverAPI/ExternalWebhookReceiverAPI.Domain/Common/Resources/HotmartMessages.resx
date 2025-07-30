@@ -58,7 +58,7 @@
 			: using a System.ComponentModel.TypeConverter
 			: and then encoded with base64 encoding.
 	-->
-	
+
 	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
 		<xsd:element name="root" msdata:IsDataSet="true">
 			<xsd:complexType>
@@ -98,4 +98,37 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+	<data name="HWB0001" xml:space="preserve">
+    <value>Aprovada</value>
+  </data>
+	<data name="HWB0002" xml:space="preserve">
+    <value>Cancelada</value>
+  </data>
+	<data name="HWB0003" xml:space="preserve">
+    <value>Completa</value>
+  </data>
+	<data name="HWB0004" xml:space="preserve">
+    <value>Boleto Registrado</value>
+  </data>
+	<data name="HWB0005" xml:space="preserve">
+    <value>Protestada</value>
+  </data>
+	<data name="HWB0006" xml:space="preserve">
+    <value>Reembolsada</value>
+  </data>
+	<data name="HWB0007" xml:space="preserve">
+    <value>Estornada</value>
+  </data>
+	<data name="HWB0008" xml:space="preserve">
+    <value>Expirada</value>
+  </data>
+	<data name="HWB0009" xml:space="preserve">
+    <value>Adiada</value>
+  </data>
+	<data name="PurchaseEventSuccess" xml:space="preserve">
+    <value>Evento de compra {0} registrado com sucesso</value>
+  </data>
+	<data name="OtherEventSuccess" xml:space="preserve">
+    <value>Evento de {0} registrado com sucesso</value>
+  </data>
 </root>

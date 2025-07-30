@@ -1,38 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.7" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
+		<PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.7" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Common\Resources\HotmartMessages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>HotmartMessages.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Common\Resources\UserMessages.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UserMessages.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup>
+	  <Compile Update="Common\Resources\HotmartMessages.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>HotmartMessages.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Common\Resources\UserMessages.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>UserMessages.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Common\Resources\HotmartMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>HotmartMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Common\Resources\UserMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>UserMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Common\Resources\HotmartMessages.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>HotmartMessages.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Common\Resources\UserMessages.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>UserMessages.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
 
 </Project>

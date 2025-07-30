@@ -22,7 +22,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class HotmartMessages {
+    public class HotmartMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExternalWebhookReceiverAPI.Domain.Common.Resources.HotmartMessages", typeof(HotmartMessages).Assembly);
@@ -51,7 +51,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -59,104 +59,103 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
                 resourceCulture = value;
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Aprovada.
         /// </summary>
-        public static string HWB0001
-        {
-            get
-            {
+        public static string HWB0001 {
+            get {
                 return ResourceManager.GetString("HWB0001", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Cancelada.
         /// </summary>
-        public static string HWB0002
-        {
-            get
-            {
+        public static string HWB0002 {
+            get {
                 return ResourceManager.GetString("HWB0002", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Completa.
         /// </summary>
-        public static string HWB0003
-        {
-            get
-            {
+        public static string HWB0003 {
+            get {
                 return ResourceManager.GetString("HWB0003", resourceCulture);
             }
         }
+        
         /// <summary>
         ///   Looks up a localized string similar to Boleto Registrado.
         /// </summary>
-        public static string HWB0004
-        {
-            get
-            {
+        public static string HWB0004 {
+            get {
                 return ResourceManager.GetString("HWB0004", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Protestado.
+        ///   Looks up a localized string similar to Protestada.
         /// </summary>
-        public static string HWB0005
-        {
-            get
-            {
+        public static string HWB0005 {
+            get {
                 return ResourceManager.GetString("HWB0005", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Reembolso.
+        ///   Looks up a localized string similar to Reembolsada.
         /// </summary>
-        public static string HWB0006
-        {
-            get
-            {
+        public static string HWB0006 {
+            get {
                 return ResourceManager.GetString("HWB0006", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Estornado.
+        ///   Looks up a localized string similar to Estornada.
         /// </summary>
-        public static string HWB0007
-        {
-            get
-            {
+        public static string HWB0007 {
+            get {
                 return ResourceManager.GetString("HWB0007", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Expirado.
+        ///   Looks up a localized string similar to Expirada.
         /// </summary>
-        public static string HWB0008
-        {
-            get
-            {
+        public static string HWB0008 {
+            get {
                 return ResourceManager.GetString("HWB0008", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Adiado.
+        ///   Looks up a localized string similar to Adiada.
         /// </summary>
-        public static string HWB0009
-        {
-            get
-            {
+        public static string HWB0009 {
+            get {
                 return ResourceManager.GetString("HWB0009", resourceCulture);
             }
         }
+        
         /// <summary>
-        ///   Looks up a localized string similar to Evento de compra {0} registrado com sucesso..
+        ///   Looks up a localized string similar to Evento de {0} registrado com sucesso.
         /// </summary>
-        public static string PurchaseEventSuccess
-        {
-            get
-            {
-                return ResourceManager.GetString("Evento de compra {0} registrado com sucesso.", resourceCulture);
+        public static string OtherEventSuccess {
+            get {
+                return ResourceManager.GetString("OtherEventSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evento de compra {0} registrado com sucesso.
+        /// </summary>
+        public static string PurchaseEventSuccess {
+            get {
+                return ResourceManager.GetString("PurchaseEventSuccess", resourceCulture);
             }
         }
     }
