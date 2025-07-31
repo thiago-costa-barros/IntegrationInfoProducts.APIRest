@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen();
 
 var stringSqlServer = builder.Configuration.GetConnectionString("DefaultConnectionSqlServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(stringSqlServer));
+    options.UseSqlServer(stringSqlServer));  
 
 builder.Services.AddOptionsInjectionConfig(builder.Configuration);
 builder.Services.AddDependencyInjectionConfig();
