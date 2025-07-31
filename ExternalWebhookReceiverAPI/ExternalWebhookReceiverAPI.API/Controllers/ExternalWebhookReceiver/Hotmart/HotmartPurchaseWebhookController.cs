@@ -44,7 +44,7 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
 
             ApiSuccessResponse response = ApiSuccessResponseFilter.CreateSuccessResponse(
                 message, 
-                JsonSerializer.SerializeToElement(new { result }));
+                JsonSerializer.SerializeToElement(result));
 
             return Ok(response);
         }
