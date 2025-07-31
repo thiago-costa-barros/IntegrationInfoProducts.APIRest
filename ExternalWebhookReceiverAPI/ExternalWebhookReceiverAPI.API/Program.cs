@@ -1,9 +1,7 @@
-using ExternalWebhookReceiverAPI.API.Filters;
+using CommonSolution.Filters;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
-using ExternalWebhookReceiverAPI.Infrastructure.Data;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore; // Add this using directive for 'UseSqlServer'
-using System;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

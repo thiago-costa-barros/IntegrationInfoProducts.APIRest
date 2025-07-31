@@ -1,5 +1,5 @@
-﻿using ExternalWebhookReceiverAPI.Domain.Common.Enums;
-using ExternalWebhookReceiverAPI.Domain.Entities;
+﻿using ExternalWebhookReceiverAPI.Domain.Entities;
+using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
 using ExternalWebhookReceiverAPI.Domain.Interfaces.DAOs;
 using System;
 using System.Collections.Generic;

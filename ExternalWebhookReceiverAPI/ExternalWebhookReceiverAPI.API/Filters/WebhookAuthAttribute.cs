@@ -1,5 +1,5 @@
 ﻿using ExternalWebhookReceiverAPI.API.Helpers;
-using ExternalWebhookReceiverAPI.Application.DTOs.Common;
+using CommonSolution.DTOs;
 using ExternalWebhookReceiverAPI.Application.Options;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
