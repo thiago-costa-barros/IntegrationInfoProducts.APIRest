@@ -5,44 +5,6 @@ using System.ComponentModel.DataAnnotations;
 namespace ExternalWebhookReceiverAPI.Domain.Entities.Enums
 {
     public enum PublicEnum;
-    
-        public enum UserType
-    {
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0000")]
-        ApiMethod = 0,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0001")]
-        TeamUser = 1,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0002")]
-        WorkerProcess = 2,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0003")]
-        Integration = 3,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0004")]
-        ScheduledTask = 4
-    }
-
-    public enum TokenType
-    {
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0005")]
-        AccessToken = 1,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0006")]
-        RefreshToken = 2
-    }
-
-    public enum TokenStatus
-    {
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0007")]
-        Active = 1,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0008")]
-        Expired = 2,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0009")]
-        Revoked = 3,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0010")]
-        Blocked = 4
-    }
 
     public enum HotmartPurchaseEventType
     {
@@ -64,6 +26,26 @@ namespace ExternalWebhookReceiverAPI.Domain.Entities.Enums
         PURCHASE_EXPIRED = 8,
         [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0009")]
         PURCHASE_DELAYED = 9
+    }
+
+    public enum ExternalWebhookReceiverSourceType
+    {
+        Hotmart = 1,
+        Udemy = 2,
+    }
+
+    public enum ExternalWebhookReceiverStatus
+    {
+        Created = 0,
+        Pending = 1,
+        Proccessed = 2,
+        Error = 3,
+    }
+
+    public enum ExternalAuthenticationType
+    {
+        Hotmart = 1,
+        Udemy = 2,
     }
 }
 
