@@ -11,7 +11,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            var basePath = Path.Combine(AppContext.BaseDirectory, "Scripts/Release");
+            var basePath = Path.Combine(AppContext.BaseDirectory, "Scripts/Execute");
 
             var release = File.ReadAllText(Path.Combine(basePath, "001_CreateTableIntegrationSchema.ExternalWebhookReceiver.sql"));
 
