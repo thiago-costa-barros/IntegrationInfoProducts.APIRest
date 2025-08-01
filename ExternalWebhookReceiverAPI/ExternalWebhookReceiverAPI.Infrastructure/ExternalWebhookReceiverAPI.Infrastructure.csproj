@@ -12,6 +12,7 @@
 
 	<ItemGroup>
 		<Folder Include="Config\" />
+		<Folder Include="Data\DAOs\" />
 	</ItemGroup>
 
 	<ItemGroup>
