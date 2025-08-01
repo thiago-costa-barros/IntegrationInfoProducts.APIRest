@@ -1,18 +1,6 @@
-﻿using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
-using ExternalWebhookReceiverAPI.Application.Services;
-using ExternalWebhookReceiverAPI.Application.Services.Hotmart;
-using ExternalWebhookReceiverAPI.Domain.Interfaces.Repositories;
-using ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs;
+﻿using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 {
     public static class InjectionExtension
