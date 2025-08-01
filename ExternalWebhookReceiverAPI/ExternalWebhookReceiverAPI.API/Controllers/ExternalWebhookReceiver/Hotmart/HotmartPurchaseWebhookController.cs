@@ -35,7 +35,7 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
             if (string.IsNullOrEmpty(token))
                 throw new UnauthorizedAccessException();
 
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload, token);
 
             var message = MessageHelper.FormatFromEnum(
                 enumValue: HotmartPurchaseEventType.PURCHASE_APPROVED,
@@ -54,9 +54,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-canceled")]
         public async Task<IActionResult> PurchaseCanceledRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseCanceledService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseCanceledService(payload, token);
             return Ok(result);
 
         }
@@ -66,9 +68,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-complete")]
         public async Task<IActionResult> PurchaseCompleteRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseCompleteService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseCompleteService(payload, token);
             return Ok(result);
 
         }
@@ -78,9 +82,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-billet-printed")]
         public async Task<IActionResult> PurchaseBilletPrintedRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseBilletPrintedService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseBilletPrintedService(payload, token);
             return Ok(result);
 
         }
@@ -90,8 +96,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-protest")]
         public async Task<IActionResult> PurchaseProtestRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseProtestService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseProtestService(payload, token);
             return Ok(result);
 
         }
@@ -101,8 +110,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-refunded")]
         public async Task<IActionResult> PurchaseRefundedRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseRefundedService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseRefundedService(payload, token);
             return Ok(result);
 
         }
@@ -112,9 +124,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-chargeback")]
         public async Task<IActionResult> PurchaseChargebackRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseChargebackService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseChargebackService(payload, token);
             return Ok(result);
 
         }
@@ -124,9 +138,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-expired")]
         public async Task<IActionResult> PurchaseExpiredRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseExpiredService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseExpiredService(payload, token);
             return Ok(result);
 
         }
@@ -136,8 +152,11 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [Route("purchase-delayed")]
         public async Task<IActionResult> PurchaseDelayedRoute([FromBody] HotmartWebhookDTO payload)
         {
+            var token = HttpContext.GetWebhookAuthToken("Hotmart");
+            if (string.IsNullOrEmpty(token))
+                throw new UnauthorizedAccessException();
 
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseDelayedService(payload);
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseDelayedService(payload, token);
             return Ok(result);
 
         }
