@@ -7,12 +7,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\ExternalWebhookReceiverAPI.Application\ExternalWebhookReceiverAPI.Application.csproj" />
 		<ProjectReference Include="..\ExternalWebhookReceiverAPI.Domain\ExternalWebhookReceiverAPI.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include="Config\" />
-		<Folder Include="Data\DAOs\" />
 	</ItemGroup>
 
 	<ItemGroup>
