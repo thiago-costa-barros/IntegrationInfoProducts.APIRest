@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Common\" />
     <Folder Include="Mappings\" />
-    <Folder Include="Services\Common\" />
   </ItemGroup>
 
   <ItemGroup>
