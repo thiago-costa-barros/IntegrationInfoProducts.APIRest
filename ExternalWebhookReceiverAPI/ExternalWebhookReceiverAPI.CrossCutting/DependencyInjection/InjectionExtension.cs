@@ -1,5 +1,5 @@
 ﻿using ExternalWebhookReceiverAPI.Application.Services;
-using ExternalWebhookReceiverAPI.Infrastructure.Repositories;
+using ExternalWebhookReceiverAPI.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 {
@@ -43,7 +43,11 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
         }
         private static void AddDataObjectAccess(this IServiceCollection services)
         {
-            
+            services.Scan(scan => scan
+                .FromAssemblyOf<AssemblyReferenceInfrastructure>()
+                .AddClasses(c => c.Where(t => t.Name.EndsWith("DAO")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
         }
     }
 }
