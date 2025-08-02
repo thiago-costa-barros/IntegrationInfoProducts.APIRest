@@ -11,6 +11,7 @@ using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Text.Json;
+using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 
 namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hotmart
 {
@@ -35,7 +36,13 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
             if (string.IsNullOrEmpty(token))
                 throw new UnauthorizedAccessException();
 
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload, token);
+            ExternalAuthenticationDTO? externalAuth = new ExternalAuthenticationDTO
+            {
+                AuthKey = token,
+                Type = ExternalAuthenticationType.Hotmart
+            };
+
+            var result = await _hotmartPurchaseWebhookService.HandlePurchaseApprovedService(payload, externalAuth);
 
             var message = MessageHelper.FormatFromEnum(
                 enumValue: HotmartPurchaseEventType.PURCHASE_APPROVED,

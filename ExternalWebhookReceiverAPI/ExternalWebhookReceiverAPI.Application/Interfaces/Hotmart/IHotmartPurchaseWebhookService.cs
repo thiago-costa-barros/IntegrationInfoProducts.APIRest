@@ -1,10 +1,11 @@
-﻿using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
+﻿using ExternalWebhookReceiverAPI.Application.DTOs.Common;
+using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart
 {
     public interface IHotmartPurchaseWebhookService
     {
-        Task<HotmartWebhookDTO> HandlePurchaseApprovedService(HotmartWebhookDTO payload, string token);
+        Task<HotmartWebhookDTO> HandlePurchaseApprovedService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth);
         Task<HotmartWebhookDTO> HandlePurchaseCanceledService(HotmartWebhookDTO payload, string token);
         Task<HotmartWebhookDTO> HandlePurchaseCompleteService(HotmartWebhookDTO payload, string token);
         Task<HotmartWebhookDTO> HandlePurchaseBilletPrintedService(HotmartWebhookDTO payload, string token);
