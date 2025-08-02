@@ -14,7 +14,7 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
         {
             _externalAuthRepository = externalAuthRepository;
         }
-        public async Task<HotmartWebhookDTO> HandlePurchaseApprovedService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth)
+        public async Task<HotmartWebhookDTO> HandlePurchaseWebhookService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth)
         {
             Company? company = await _externalAuthRepository.GetCompanyByTokenAsync(externalAuth);
             if (company == null)
@@ -23,46 +23,6 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
             }
 
             return await Task.FromResult(payload);
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseBilletPrintedService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseCanceledService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseChargebackService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseCompleteService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseDelayedService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseExpiredService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseProtestService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<HotmartWebhookDTO> HandlePurchaseRefundedService(HotmartWebhookDTO payload, string token)
-        {
-            throw new NotImplementedException();
         }
     }
 }
