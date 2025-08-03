@@ -1,7 +1,7 @@
 ﻿using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 
-namespace ExternalWebhookReceiverAPI.Application.Interfaces.Common
+namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
 {
     /// <summary>
     /// Defines the contract for repository operations related to external authentication.

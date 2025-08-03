@@ -1,6 +1,7 @@
 ﻿using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Common;
+using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Repositories.Common

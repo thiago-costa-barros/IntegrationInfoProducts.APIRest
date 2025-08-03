@@ -1,6 +1,6 @@
 ﻿using CommonSolution.Entities.CoreSchema;
 
-namespace ExternalWebhookReceiverAPI.Application.Interfaces.Common
+namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services
 {
     /// <summary>
     /// Defines the contract for service-level logic related to external authentication.

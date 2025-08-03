@@ -2,8 +2,8 @@
 using CommonSolution.Helpers;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Common;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Application.Mappings.Hotmart;
 using ExternalWebhookReceiverAPI.Domain.Entities;
 using ExternalWebhookReceiverAPI.Domain.Entities.Enums;

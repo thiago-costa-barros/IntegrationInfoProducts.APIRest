@@ -1,7 +1,7 @@
 ﻿using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 
-namespace ExternalWebhookReceiverAPI.Application.Interfaces.Common
+namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
 {
     /// <summary>
     /// Defines the data access operations for the ExternalAuthentication entity.

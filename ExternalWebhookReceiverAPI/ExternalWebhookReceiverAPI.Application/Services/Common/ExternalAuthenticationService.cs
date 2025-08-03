@@ -1,5 +1,5 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Common;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
 
 namespace ExternalWebhookReceiverAPI.Application.Services.Common
 {
