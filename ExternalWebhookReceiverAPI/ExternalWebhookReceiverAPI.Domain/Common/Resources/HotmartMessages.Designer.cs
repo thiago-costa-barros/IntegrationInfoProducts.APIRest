@@ -79,7 +79,25 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aprovada.
+        ///   Looks up a localized string similar to EXC0003 - O campo {0} é obrigatório..
+        /// </summary>
+        public static string EXC0003 {
+            get {
+                return ResourceManager.GetString("EXC0003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXC0004 - O campo {0} deve ser maior que zero..
+        /// </summary>
+        public static string EXC0004 {
+            get {
+                return ResourceManager.GetString("EXC0004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compra Aprovada.
         /// </summary>
         public static string HWB0001 {
             get {
@@ -88,7 +106,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancelada.
+        ///   Looks up a localized string similar to Compra Cancelada.
         /// </summary>
         public static string HWB0002 {
             get {
@@ -97,7 +115,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Completa.
+        ///   Looks up a localized string similar to Compra Completa.
         /// </summary>
         public static string HWB0003 {
             get {
@@ -106,7 +124,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Boleto Registrado.
+        ///   Looks up a localized string similar to Compra Boleto Registrado.
         /// </summary>
         public static string HWB0004 {
             get {
@@ -115,7 +133,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Protestada.
+        ///   Looks up a localized string similar to Compra Protestada.
         /// </summary>
         public static string HWB0005 {
             get {
@@ -124,7 +142,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Reembolsada.
+        ///   Looks up a localized string similar to Compra Reembolsada.
         /// </summary>
         public static string HWB0006 {
             get {
@@ -133,7 +151,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estornada.
+        ///   Looks up a localized string similar to Compra Estornada.
         /// </summary>
         public static string HWB0007 {
             get {
@@ -142,7 +160,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Expirada.
+        ///   Looks up a localized string similar to Compra Expirada.
         /// </summary>
         public static string HWB0008 {
             get {
@@ -151,7 +169,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Adiada.
+        ///   Looks up a localized string similar to Compra Adiada.
         /// </summary>
         public static string HWB0009 {
             get {
@@ -160,20 +178,65 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Evento de {0} registrado com sucesso.
+        ///   Looks up a localized string similar to Cancelamento de Assinatura.
         /// </summary>
-        public static string OtherEventSuccess {
+        public static string HWB0010 {
             get {
-                return ResourceManager.GetString("OtherEventSuccess", resourceCulture);
+                return ResourceManager.GetString("HWB0010", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Evento de compra {0} registrado com sucesso.
+        ///   Looks up a localized string similar to Troca de Plano.
         /// </summary>
-        public static string PurchaseEventSuccess {
+        public static string HWB0011 {
             get {
-                return ResourceManager.GetString("PurchaseEventSuccess", resourceCulture);
+                return ResourceManager.GetString("HWB0011", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandono de Carrinho.
+        /// </summary>
+        public static string HWB0012 {
+            get {
+                return ResourceManager.GetString("HWB0012", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Troca do Dia de Cobrança de Assinatura.
+        /// </summary>
+        public static string HWB0013 {
+            get {
+                return ResourceManager.GetString("HWB0013", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primeiro Acesso.
+        /// </summary>
+        public static string HWB0014 {
+            get {
+                return ResourceManager.GetString("HWB0014", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Módulo Completo.
+        /// </summary>
+        public static string HWB0015 {
+            get {
+                return ResourceManager.GetString("HWB0015", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evento de {0} registrado com sucesso.
+        /// </summary>
+        public static string WebhookEventSuccess {
+            get {
+                return ResourceManager.GetString("WebhookEventSuccess", resourceCulture);
             }
         }
     }
