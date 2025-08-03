@@ -1,8 +1,6 @@
 ﻿using CommonSolution.Entities;
-using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json;
 
 namespace ExternalWebhookReceiverAPI.Domain.Entities
 {
@@ -14,8 +12,6 @@ namespace ExternalWebhookReceiverAPI.Domain.Entities
         public ExternalWebhookReceiverStatus Status { get; set; }
         public int CompanyId { get; set; }
         public string? ExternalIdentifier { get; set; }
-        public JsonElement Payload { get; set; }
-        [ForeignKey(nameof(CompanyId))]
-        public required Company Company { get; set; }
+        public string? Payload { get; set; }
     }
 }
