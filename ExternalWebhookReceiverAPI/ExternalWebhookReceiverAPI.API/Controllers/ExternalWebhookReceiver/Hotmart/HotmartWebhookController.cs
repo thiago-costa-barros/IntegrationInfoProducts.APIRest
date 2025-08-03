@@ -29,7 +29,7 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
 
         [WebhookAuth("Hotmart")]
         [HttpPost]
-        [Route("purchase-webhook")]
+        [Route("webhook")]
         public async Task<IActionResult> PurchaseWebhookRoute([FromBody] HotmartWebhookDTO payload)
         {
             var token = HttpContext.GetWebhookAuthToken("Hotmart");
@@ -42,13 +42,13 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
                 Type = ExternalAuthenticationType.Hotmart
             };
 
-            EnumHelper.TryParseEnum(payload.Event, out HotmartPurchaseEventType eventType);
+            EnumHelper.TryParseEnum(payload.Event, out HotmartWebhookEventType eventType);
 
             var result = await _hotmartWebhookService.HandleWebhookService(payload, externalAuth);
 
             var message = MessageHelper.FormatFromEnum(
                 enumValue: eventType,
-                template: HotmartMessages.PurchaseEventSuccess
+                template: HotmartMessages.WebhookEventSuccess
             );
 
             ApiSuccessResponse response = ApiSuccessResponseFilter.CreateSuccessResponse(
