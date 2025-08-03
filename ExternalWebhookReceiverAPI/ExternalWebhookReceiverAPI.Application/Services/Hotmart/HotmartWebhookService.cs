@@ -9,6 +9,7 @@ using ExternalWebhookReceiverAPI.Application.Mappings.Hotmart;
 using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 using ExternalWebhookReceiverAPI.Domain.Entities;
 using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
+using FluentValidation;
 using Microsoft.Extensions.Options;
 
 namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
@@ -18,14 +19,26 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
         private readonly IExternalAuthenticationRepository _externalAuthRepository;
         private readonly IOptions<DefaultUserService> _defaultUser;
         private readonly IExternalWebhookReceiverRepository _externalWebhookReceiverRepository;
-        public HotmartWebhookService(IExternalAuthenticationRepository externalAuthRepository, IOptions<DefaultUserService> defaultUser, IExternalWebhookReceiverRepository externalWebhookReceiverRepository)
+        private readonly IValidator<HotmartWebhookDTO> _validator;
+        public HotmartWebhookService(IExternalAuthenticationRepository externalAuthRepository, 
+            IOptions<DefaultUserService> defaultUser, 
+            IExternalWebhookReceiverRepository externalWebhookReceiverRepository,
+            IValidator<HotmartWebhookDTO> validator)
         {
             _externalAuthRepository = externalAuthRepository;
             _defaultUser = defaultUser;
             _externalWebhookReceiverRepository = externalWebhookReceiverRepository;
+            _validator = validator;
         }
         public async Task<HotmartWebhookDTO> HandleWebhookService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth)
         {
+            var validationResult = await _validator.ValidateAsync(payload);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
             Company? company = await _externalAuthRepository.GetCompanyByTokenAsync(externalAuth);
             if (company == null)
             {
@@ -49,8 +62,8 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 
         private async Task ValidationHotmartWebhook(HotmartWebhookDTO payload, Company company)
         {
-            if (string.IsNullOrEmpty(payload.Id))
-                throw new ArgumentNullException(HotmartMessages.EXC0001);
+            //if (string.IsNullOrEmpty(payload.Id))
+            //    throw new ArgumentException(string.Format(HotmartMessages.EXC0001));
 
             ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload,company);
             if (existExternalWebhookReceiver != null)

@@ -79,6 +79,24 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXC0003 - O campo {0} é obrigatório..
+        /// </summary>
+        public static string EXC0003 {
+            get {
+                return ResourceManager.GetString("EXC0003", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXC0004 - O campo {0} deve ser maior que zero..
+        /// </summary>
+        public static string EXC0004 {
+            get {
+                return ResourceManager.GetString("EXC0004", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Compra Aprovada.
         /// </summary>
         public static string HWB0001 {

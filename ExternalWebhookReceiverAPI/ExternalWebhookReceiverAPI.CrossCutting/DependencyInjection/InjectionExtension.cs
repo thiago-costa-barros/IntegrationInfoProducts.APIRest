@@ -1,5 +1,6 @@
 ﻿using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.Infrastructure;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 {
@@ -21,6 +22,9 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 
             //Data Object Access
             services.AddDataObjectAccess();
+
+            //Validators
+            services.AddValidators();
 
             return services;
         }
@@ -46,6 +50,14 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
             services.Scan(scan => scan
                 .FromAssemblyOf<AssemblyReferenceInfrastructure>()
                 .AddClasses(c => c.Where(t => t.Name.EndsWith("DAO")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
+        }
+        private static void AddValidators(this IServiceCollection services)
+        {
+            services.Scan(scan => scan
+                .FromAssemblyOf<AssemblyReferenceApplication>() 
+                .AddClasses(c => c.AssignableTo(typeof(IValidator<>)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
         }
