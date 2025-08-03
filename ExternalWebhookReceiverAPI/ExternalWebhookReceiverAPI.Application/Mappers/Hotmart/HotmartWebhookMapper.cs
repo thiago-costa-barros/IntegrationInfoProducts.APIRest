@@ -1,4 +1,5 @@
-﻿using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.Entities;
+using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Domain.Entities;
 using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
@@ -11,7 +12,8 @@ namespace ExternalWebhookReceiverAPI.Application.Mappings.Hotmart
         public static ExternalWebhookReceiver ToExternalWebhookReceiver(
             HotmartWebhookDTO dto,
             Company company,
-            ExternalWebhookReceiverSourceType sourceType)
+            ExternalWebhookReceiverSourceType sourceType,
+            DefaultUserService defaultUser)
         {
             return new ExternalWebhookReceiver
             {
@@ -19,8 +21,9 @@ namespace ExternalWebhookReceiverAPI.Application.Mappings.Hotmart
                 Status = ExternalWebhookReceiverStatus.Created,
                 CompanyId = company.CompanyId,
                 ExternalIdentifier = dto.Id,
-                Payload = JsonSerializer.SerializeToElement(dto),
-                Company = company,
+                Payload = JsonSerializer.Serialize(dto),
+                CreationUserId = defaultUser.DefaultUserId,
+                UpdateUserId = defaultUser.DefaultUserId,
             };
         }
     }
