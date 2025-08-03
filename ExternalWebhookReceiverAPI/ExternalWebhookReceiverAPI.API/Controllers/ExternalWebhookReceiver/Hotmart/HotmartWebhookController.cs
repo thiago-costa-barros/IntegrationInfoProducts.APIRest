@@ -17,13 +17,13 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
 {
     [Route("api/external-webhook-receiver/hotmart/")]
     [ApiController]
-    public class HotmartPurchaseWebhookController : ControllerBase
+    public class HotmartWebhookController : ControllerBase
     {
-        private readonly IHotmartPurchaseWebhookService _hotmartPurchaseWebhookService;
+        private readonly IHotmartWebhookService _hotmartWebhookService;
         private readonly IOptionsSnapshot<AuthorizationExternalWebhookOptions> _authOptions;
-        public HotmartPurchaseWebhookController(IHotmartPurchaseWebhookService hotmartPurchaseWebhookService, IOptionsSnapshot<AuthorizationExternalWebhookOptions> authOptions)
+        public HotmartWebhookController(IHotmartWebhookService hotmartWebhookService, IOptionsSnapshot<AuthorizationExternalWebhookOptions> authOptions)
         {
-            _hotmartPurchaseWebhookService = hotmartPurchaseWebhookService;
+            _hotmartWebhookService = hotmartWebhookService;
             _authOptions = authOptions;
         }
 
@@ -44,7 +44,7 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
 
             EnumHelper.TryParseEnum(payload.Event, out HotmartPurchaseEventType eventType);
 
-            var result = await _hotmartPurchaseWebhookService.HandlePurchaseWebhookService(payload, externalAuth);
+            var result = await _hotmartWebhookService.HandleWebhookService(payload, externalAuth);
 
             var message = MessageHelper.FormatFromEnum(
                 enumValue: eventType,

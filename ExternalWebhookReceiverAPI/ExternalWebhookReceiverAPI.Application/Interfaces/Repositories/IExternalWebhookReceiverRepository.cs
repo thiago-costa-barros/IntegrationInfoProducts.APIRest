@@ -1,16 +1,16 @@
-﻿using ExternalWebhookReceiverAPI.Domain.Entities;
+﻿using CommonSolution.Entities.CoreSchema;
+using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
+using ExternalWebhookReceiverAPI.Domain.Entities;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
 {
     /// <summary>
-    /// Defines the contract for repository operations related to external authentication.
+    /// Defines the contract for repository operations related to ExternalWebhookReceiver.
     /// Responsible for delegating data access to DAO and mapping results to domain models.
     /// </summary>
     public interface IExternalWebhookReceiverRepository
     {
-        /// <summary>
-        /// Saves an ExternalWebhookReceiver entity to the database.
-        /// </summary>
         Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver);
+        Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(HotmartWebhookDTO payload, Company company);
     }
 }

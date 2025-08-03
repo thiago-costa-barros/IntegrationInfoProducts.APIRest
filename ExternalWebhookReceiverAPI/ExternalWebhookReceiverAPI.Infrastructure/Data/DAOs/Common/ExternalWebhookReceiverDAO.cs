@@ -1,5 +1,8 @@
-﻿using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
+﻿using CommonSolution.Entities.CoreSchema;
+using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
+using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 using ExternalWebhookReceiverAPI.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
 {
@@ -10,6 +13,18 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
         {
             _context = context;
         }
+
+        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(HotmartWebhookDTO payload, Company company)
+        {
+            ExternalWebhookReceiver? result = await _context.ExternalWebhookReceiver
+                .FirstOrDefaultAsync(x =>
+                x.ExternalIdentifier == payload.Id &&
+                x.CompanyId == company.CompanyId &&
+                x.DeletionDate == null);
+
+            return result;
+        }
+
         public async Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver)
         {
             var dateNow = DateTime.UtcNow;
@@ -18,7 +33,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             externalWebhookReceiver.UpdateDate = dateNow;
 
             _context.ExternalWebhookReceiver.Add(externalWebhookReceiver);
-            
+
             await _context.SaveChangesAsync();
         }
     }

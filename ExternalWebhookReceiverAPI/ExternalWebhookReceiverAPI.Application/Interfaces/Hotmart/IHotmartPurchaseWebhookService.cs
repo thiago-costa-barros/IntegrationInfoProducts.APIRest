@@ -3,9 +3,9 @@ using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart
 {
-    public interface IHotmartPurchaseWebhookService
+    public interface IHotmartWebhookService
     {
-        Task<HotmartWebhookDTO> HandlePurchaseWebhookService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth);
+        Task<HotmartWebhookDTO> HandleWebhookService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth);
 
     }
 }

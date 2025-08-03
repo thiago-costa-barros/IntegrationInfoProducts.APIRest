@@ -61,6 +61,24 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EXC0001 - Identifier não foi localizado na requisição..
+        /// </summary>
+        public static string EXC0001 {
+            get {
+                return ResourceManager.GetString("EXC0001", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EXC0002 - Evento com Identifier {0} já existe para essa Company..
+        /// </summary>
+        public static string EXC0002 {
+            get {
+                return ResourceManager.GetString("EXC0002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aprovada.
         /// </summary>
         public static string HWB0001 {

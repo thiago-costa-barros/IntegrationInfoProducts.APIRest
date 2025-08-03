@@ -131,4 +131,10 @@
 	<data name="OtherEventSuccess" xml:space="preserve">
     <value>Evento de {0} registrado com sucesso</value>
   </data>
+	<data name="EXC0001" xml:space="preserve">
+    <value>EXC0001 - Identifier não foi localizado na requisição.</value>
+  </data>
+	<data name="EXC0002" xml:space="preserve">
+    <value>EXC0002 - Evento com Identifier {0} já existe para essa Company.</value>
+  </data>
 </root>
