@@ -30,7 +30,7 @@ namespace ExternalWebhookReceiverAPI.API.Controllers.ExternalWebhookReceiver.Hot
         [WebhookAuth("Hotmart")]
         [HttpPost]
         [Route("webhook")]
-        public async Task<IActionResult> PurchaseWebhookRoute([FromBody] HotmartWebhookDTO payload)
+        public async Task<IActionResult> HotmartWebhookRoute([FromBody] HotmartWebhookDTO payload)
         {
             var token = HttpContext.GetWebhookAuthToken("Hotmart");
             if (string.IsNullOrEmpty(token))
