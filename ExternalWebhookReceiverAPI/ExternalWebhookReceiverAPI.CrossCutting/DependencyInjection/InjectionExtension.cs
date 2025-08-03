@@ -1,17 +1,6 @@
-﻿using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
-using ExternalWebhookReceiverAPI.Application.Services.Hotmart;
-using ExternalWebhookReceiverAPI.Domain.Interfaces.Repositories;
-using ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs;
-using ExternalWebhookReceiverAPI.Infrastructure.Repositories;
+﻿using ExternalWebhookReceiverAPI.Application.Services;
+using ExternalWebhookReceiverAPI.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 {
     public static class InjectionExtension
@@ -36,28 +25,29 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
             return services;
         }
 
-        public static IServiceCollection AddServices(this IServiceCollection services)
+        private static void AddServices(this IServiceCollection services)
         {
-            // Add your application services here
-
-            return services;
+            services.Scan(scan => scan
+                .FromAssemblyOf<AssemblyReferenceApplication>()
+                .AddClasses(c => c.Where(t => t.Name.EndsWith("Service")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
         }
-        public static IServiceCollection AddRepositories(this IServiceCollection services)
+        private static void AddRepositories(this IServiceCollection services)
         {
-            // Add your application repositories here
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IHotmartPurchaseWebhookService, HotmartPurchaseWebhookService>();
-
-            return services;
+            services.Scan(scan => scan
+                .FromAssemblyOf<AssemblyReferenceInfrastructure>()
+                .AddClasses(c => c.Where(t => t.Name.EndsWith("Repository")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
         }
-        public static IServiceCollection AddDataObjectAccess(this IServiceCollection services)
+        private static void AddDataObjectAccess(this IServiceCollection services)
         {
-            // Add your DAOs here
-            services.AddScoped<UserDAO>();
-            services.AddScoped<AuthDAO>();
-
-            return services;
+            services.Scan(scan => scan
+                .FromAssemblyOf<AssemblyReferenceInfrastructure>()
+                .AddClasses(c => c.Where(t => t.Name.EndsWith("DAO")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
         }
     }
 }

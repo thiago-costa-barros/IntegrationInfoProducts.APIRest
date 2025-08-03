@@ -1,14 +1,14 @@
-﻿using ExternalWebhookReceiverAPI.Domain.Entities;
+﻿using CommonSolution.Entities.CoreSchema;
+using ExternalWebhookReceiverAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
+
+    public DbSet<Company> Company { get; set; }
+    public DbSet<ExternalWebhookReceiver> ExternalWebhookReceiver { get; set; }
+    public DbSet<ExternalAuthentication> ExternalAuthentication { get; set; }
 }
