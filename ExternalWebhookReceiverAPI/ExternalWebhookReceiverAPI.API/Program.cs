@@ -1,4 +1,6 @@
 using CommonSolution.Filters;
+using CommonSolution.Interfaces.Logging;
+using CommonSolution.Middleware;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
 using FluentValidation;
@@ -32,6 +34,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<AssemblyReferenceApplicatio
 
 var app = builder.Build();
 
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
