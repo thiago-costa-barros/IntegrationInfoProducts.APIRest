@@ -11,13 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Common\" />
-    <Folder Include="Mappings\" />
-    <Folder Include="Services\Common\" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.7" />
+    <PackageReference Include="Scrutor" Version="6.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.7" />
+    <Folder Include="Interfaces\Common\" />
   </ItemGroup>
 
 </Project>

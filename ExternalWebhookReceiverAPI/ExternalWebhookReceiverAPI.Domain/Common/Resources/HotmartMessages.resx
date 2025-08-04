@@ -99,36 +99,63 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="HWB0001" xml:space="preserve">
-    <value>Aprovada</value>
+    <value>Compra Aprovada</value>
   </data>
 	<data name="HWB0002" xml:space="preserve">
-    <value>Cancelada</value>
+    <value>Compra Cancelada</value>
   </data>
 	<data name="HWB0003" xml:space="preserve">
-    <value>Completa</value>
+    <value>Compra Completa</value>
   </data>
 	<data name="HWB0004" xml:space="preserve">
-    <value>Boleto Registrado</value>
+    <value>Compra Boleto Registrado</value>
   </data>
 	<data name="HWB0005" xml:space="preserve">
-    <value>Protestada</value>
+    <value>Compra Protestada</value>
   </data>
 	<data name="HWB0006" xml:space="preserve">
-    <value>Reembolsada</value>
+    <value>Compra Reembolsada</value>
   </data>
 	<data name="HWB0007" xml:space="preserve">
-    <value>Estornada</value>
+    <value>Compra Estornada</value>
   </data>
 	<data name="HWB0008" xml:space="preserve">
-    <value>Expirada</value>
+    <value>Compra Expirada</value>
   </data>
 	<data name="HWB0009" xml:space="preserve">
-    <value>Adiada</value>
+    <value>Compra Adiada</value>
   </data>
-	<data name="PurchaseEventSuccess" xml:space="preserve">
-    <value>Evento de compra {0} registrado com sucesso</value>
+	<data name="HWB0010" xml:space="preserve">
+    <value>Cancelamento de Assinatura</value>
   </data>
-	<data name="OtherEventSuccess" xml:space="preserve">
+	<data name="HWB0011" xml:space="preserve">
+    <value>Troca de Plano</value>
+  </data>
+	<data name="HWB0012" xml:space="preserve">
+    <value>Abandono de Carrinho</value>
+  </data>
+	<data name="HWB0013" xml:space="preserve">
+    <value>Troca do Dia de Cobrança de Assinatura</value>
+  </data>
+	<data name="HWB0014" xml:space="preserve">
+    <value>Primeiro Acesso</value>
+  </data>
+	<data name="HWB0015" xml:space="preserve">
+    <value>Módulo Completo</value>
+  </data>
+	<data name="WebhookEventSuccess" xml:space="preserve">
     <value>Evento de {0} registrado com sucesso</value>
+  </data>
+	<data name="EXC0001" xml:space="preserve">
+    <value>EXC0001 - Identifier não foi localizado na requisição.</value>
+  </data>
+	<data name="EXC0002" xml:space="preserve">
+    <value>EXC0002 - Evento com Identifier {0} já existe para essa Company.</value>
+  </data>
+	<data name="EXC0003" xml:space="preserve">
+    <value>EXC0003 - O campo {0} é obrigatório.</value>
+  </data>
+	<data name="EXC0004" xml:space="preserve">
+    <value>EXC0004 - O campo {0} deve ser maior que zero.</value>
   </data>
 </root>

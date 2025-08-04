@@ -4,47 +4,27 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ExternalWebhookReceiverAPI.Domain.Entities.Enums
 {
-    public enum PublicEnum;
-    
-        public enum UserType
+    public enum ExternalWebhookReceiverSourceType
     {
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0000")]
-        ApiMethod = 0,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0001")]
-        TeamUser = 1,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0002")]
-        WorkerProcess = 2,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0003")]
-        Integration = 3,
-
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0004")]
-        ScheduledTask = 4
+        Hotmart = 1,
+        Udemy = 2,
     }
 
-    public enum TokenType
+    public enum ExternalWebhookReceiverStatus
     {
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0005")]
-        AccessToken = 1,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0006")]
-        RefreshToken = 2
+        Created = 0,
+        Pending = 1,
+        Proccessed = 2,
+        Error = 3,
     }
 
-    public enum TokenStatus
+    public enum ExternalAuthenticationType
     {
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0007")]
-        Active = 1,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0008")]
-        Expired = 2,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0009")]
-        Revoked = 3,
-        [Display(ResourceType = typeof(UserMessages), Name = "ECM0010")]
-        Blocked = 4
+        Hotmart = 1,
+        Udemy = 2,
     }
 
-    public enum HotmartPurchaseEventType
+    public enum HotmartWebhookEventType
     {
         [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0001")]
         PURCHASE_APPROVED = 1,
@@ -63,7 +43,19 @@ namespace ExternalWebhookReceiverAPI.Domain.Entities.Enums
         [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0008")]
         PURCHASE_EXPIRED = 8,
         [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0009")]
-        PURCHASE_DELAYED = 9
+        PURCHASE_DELAYED = 9,
+        [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0010")]
+        SUBSCRIPTION_CANCELLATION = 10,
+        [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0011")]
+        SWITCH_PLAN = 11,
+        [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0012")]
+        PURCHASE_OUT_OF_SHOPPING_CART = 12,
+        [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0013")]
+        UPDATE_SUBSCRIPTION_CHARGE_DATE = 13,
+        [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0014")]
+        CLUB_FIRST_ACCESS = 14,
+        [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0015")]
+        CLUB_MODULE_COMPLETED = 15,
     }
 }
 
