@@ -1,7 +1,7 @@
-﻿using ExternalWebhookReceiverAPI.Application.Options;
+﻿using CommonSolution.Entities;
+using ExternalWebhookReceiverAPI.Application.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 {
@@ -11,6 +11,9 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
         {
             services.Configure<AuthorizationExternalWebhookOptions>(
                 configuration.GetSection("AuthorizationExternalWebhook"));
+
+            services.Configure<DefaultUserService>(
+                configuration.GetSection("DefaultUser"));
 
             return services;
         }

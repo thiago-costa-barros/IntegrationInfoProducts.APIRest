@@ -1,5 +1,7 @@
 using CommonSolution.Filters;
+using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore; // Add this using directive for 'UseSqlServer'
 
 
@@ -26,6 +28,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddOptionsInjectionConfig(builder.Configuration);
 builder.Services.AddDependencyInjectionConfig();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddValidatorsFromAssemblyContaining<AssemblyReferenceApplication>();
 
 var app = builder.Build();
 
