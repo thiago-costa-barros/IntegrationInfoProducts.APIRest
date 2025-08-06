@@ -1,12 +1,11 @@
 ﻿using ExternalWebhookReceiverAPI.API.Helpers;
 using CommonSolution.DTOs;
 using ExternalWebhookReceiverAPI.Application.Options;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Options;
-using System;
 using System.Diagnostics;
+using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 
 namespace ExternalWebhookReceiverAPI.API.Filters
 {
@@ -31,14 +30,20 @@ namespace ExternalWebhookReceiverAPI.API.Filters
 
             // Obtém o nome do header esperado baseado no nome da integração
             var expectedHeaderName = WebhookAuthHelper.GetHeaderKeyByIntegration(_integration, options);
+            var traceId = context.HttpContext?.TraceIdentifier;
+            var apiMessage = new ApiMessage
+            {
+                Value = string.Format(ExternalWebhookReceiverMessages.AuthenticationHeaderNotFound),
+                Details = new List<string> { string.Format(ExternalWebhookReceiverMessages.EXC0001, _integration) },
+            };
 
             var response = new ApiErrorResponse
             {
                 StatusCode = StatusCodes.Status401Unauthorized,
                 ErrorType = "Unauthorized",
-                Message = $"Header de autenticação não localizado.",
+                Message = apiMessage,
+                TraceId = traceId,
                 RequestTime = DateTime.UtcNow,
-                Details = $"Header de autenticação '{_integration}' é obrigatório."
             };
 
             if (string.IsNullOrWhiteSpace(expectedHeaderName) ||

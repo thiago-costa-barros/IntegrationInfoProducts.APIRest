@@ -1,4 +1,6 @@
-﻿using ExternalWebhookReceiverAPI.Application.Services;
+﻿using CommonSolution.Handlers;
+using CommonSolution.Interfaces.Logging;
+using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.Infrastructure;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +27,9 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 
             //Validators
             services.AddValidators();
+
+            //Logging
+            services.AddLogging();
 
             return services;
         }
@@ -56,10 +61,14 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
         private static void AddValidators(this IServiceCollection services)
         {
             services.Scan(scan => scan
-                .FromAssemblyOf<AssemblyReferenceApplication>() 
+                .FromAssemblyOf<AssemblyReferenceApplication>()
                 .AddClasses(c => c.AssignableTo(typeof(IValidator<>)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
+        }
+        private static void AddLogging(this IServiceCollection services)
+        {
+            services.AddSingleton<ILogHandler, ElasticLogHandler>();
         }
     }
 }

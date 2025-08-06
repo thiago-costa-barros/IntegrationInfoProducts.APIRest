@@ -1,4 +1,5 @@
 ﻿using CommonSolution.Entities;
+using CommonSolution.Entities.Logging;
 using ExternalWebhookReceiverAPI.Application.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,10 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
 
             services.Configure<DefaultUserService>(
                 configuration.GetSection("DefaultUser"));
+
+            services.Configure<LoggingOptions>(
+                configuration.GetSection("LoggingOptions")
+);
 
             return services;
         }
