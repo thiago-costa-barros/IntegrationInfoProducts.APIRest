@@ -1,6 +1,6 @@
 ﻿using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
-using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
+using ExternalWebhookReceiverAPI.Infrastructure.Interfaces.DAOs;
 using ExternalWebhookReceiverAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,11 +14,11 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             _context = context;
         }
 
-        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(HotmartWebhookDTO payload, Company company)
+        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(string identifier, Company company)
         {
             ExternalWebhookReceiver? result = await _context.ExternalWebhookReceiver
                 .FirstOrDefaultAsync(x =>
-                x.ExternalIdentifier == payload.Id &&
+                x.ExternalIdentifier == identifier &&
                 x.CompanyId == company.CompanyId &&
                 x.DeletionDate == null);
 

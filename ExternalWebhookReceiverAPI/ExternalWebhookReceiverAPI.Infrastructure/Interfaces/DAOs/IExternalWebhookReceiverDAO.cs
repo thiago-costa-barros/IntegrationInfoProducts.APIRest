@@ -1,8 +1,7 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Domain.Entities;
 
-namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
+namespace ExternalWebhookReceiverAPI.Infrastructure.Interfaces.DAOs
 {
     /// <summary>
     /// Defines the data access operations for the ExternalWebhookReceiver entity.
@@ -11,6 +10,6 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
     public interface IExternalWebhookReceiverDAO
     {
         Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver);
-        Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(HotmartWebhookDTO payload, Company company);
+        Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(string identifier, Company company);
     }
 }
