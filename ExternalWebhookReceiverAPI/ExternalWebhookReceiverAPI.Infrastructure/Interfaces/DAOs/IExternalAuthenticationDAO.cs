@@ -1,7 +1,7 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.DTOs.Common;
+using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
 
-namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
+namespace ExternalWebhookReceiverAPI.Infrastructure.Interfaces.DAOs
 {
     /// <summary>
     /// Defines the data access operations for the ExternalAuthentication entity.
@@ -14,6 +14,6 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
         /// Executes the query using EF Core based on AuthType and AuthKey.
         /// </summary>
         /// <returns>The company entity if a match is found; otherwise, null.</returns>
-        Task<Company?> GetCompanyByTokenAsync(ExternalAuthenticationDTO externalAuth);
+        Task<Company?> GetCompanyByTokenAsync(string externalAuth, ExternalAuthenticationType type);
     }
 }

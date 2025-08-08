@@ -1,6 +1,6 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.DTOs.Common;
-using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
+using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
+using ExternalWebhookReceiverAPI.Infrastructure.Interfaces.DAOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
@@ -17,14 +17,14 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             _context = context;
         }
 
-        public async Task<Company?> GetCompanyByTokenAsync(ExternalAuthenticationDTO externalAuth)
+        public async Task<Company?> GetCompanyByTokenAsync(string externalAuth, ExternalAuthenticationType type)
         {
             var result = await _context.ExternalAuthentication
                 .AsNoTracking()
                 .Include(x => x.Company)
                 .FirstOrDefaultAsync(x =>
-                    x.AuthKey == externalAuth.AuthKey &&
-                    x.AuthType == externalAuth.Type &&
+                    x.AuthKey == externalAuth &&
+                    x.AuthType == type &&
                     x.DeletionDate == null);
 
             return result?.Company;
