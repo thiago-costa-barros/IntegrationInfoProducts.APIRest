@@ -1,6 +1,4 @@
-﻿
-
-namespace ExternalWebhookReceiverAPI.Application.Services
+﻿namespace ExternalWebhookReceiverAPI.Application.Services
 {
     public sealed class AssemblyReferenceApplication { }
 }

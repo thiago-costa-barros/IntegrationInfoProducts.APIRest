@@ -1,5 +1,4 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Infrastructure.Interfaces.DAOs;
 using ExternalWebhookReceiverAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
