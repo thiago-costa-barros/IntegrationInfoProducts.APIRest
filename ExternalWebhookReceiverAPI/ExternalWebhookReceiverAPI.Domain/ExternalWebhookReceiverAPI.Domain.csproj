@@ -22,21 +22,12 @@
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>HotmartMessages.resx</DependentUpon>
 	  </Compile>
-	  <Compile Update="Common\Resources\ExternalWebhookReceiverMessages.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>ExternalWebhookReceiverMessages.resx</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Update="Common\Resources\HotmartMessages.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>HotmartMessages.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<EmbeddedResource Update="Common\Resources\ExternalWebhookReceiverMessages.resx">
-		  <Generator>PublicResXFileCodeGenerator</Generator>
-		  <LastGenOutput>ExternalWebhookReceiverMessages.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 	</ItemGroup>
 

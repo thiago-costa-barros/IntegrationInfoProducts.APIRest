@@ -1,9 +1,9 @@
-﻿using CommonSolution.Entities;
-using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
-using ExternalWebhookReceiverAPI.Domain.Entities;
-using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
+using CommonSolution.Entities.Common.Enums;
 using System.Text.Json;
+using CommonSolution.Entities.Common;
+using CommonSolution.Entities.IntegrationSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Mappings.Hotmart
 {

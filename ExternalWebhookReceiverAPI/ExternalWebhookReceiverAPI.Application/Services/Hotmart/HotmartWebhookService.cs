@@ -1,17 +1,17 @@
-﻿using CommonSolution.Entities;
-using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.Entities.CoreSchema;
 using CommonSolution.Resources;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Application.Mappings.Hotmart;
 using ExternalWebhookReceiverAPI.Domain.Common.Resources;
-using ExternalWebhookReceiverAPI.Domain.Entities;
-using ExternalWebhookReceiverAPI.Domain.Entities.Enums;
+using CommonSolution.Entities.Common.Enums;
 using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
+using CommonSolution.Entities.Common;
+using CommonSolution.Interfaces.Repositories;
+using CommonSolution.Entities.IntegrationSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 {
@@ -62,14 +62,14 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 
         private async Task ValidationHotmartWebhook(HotmartWebhookDTO payload, Company company)
         {
-            ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload, company);
+            ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload.Id, company);
             if (existExternalWebhookReceiver != null)
                 throw new ArgumentException(string.Format(HotmartMessages.EXC0002, payload.Id));
         }
 
         private async Task<Company> GetCompanyByTokenAsync(ExternalAuthenticationDTO externalAuth)
         {
-            Company? company = await _externalAuthRepository.GetCompanyByTokenAsync(externalAuth);
+            Company? company = await _externalAuthRepository.GetCompanyByTokenAsync(externalAuth.AuthKey, externalAuth.Type);
             if (company == null)
                 throw new UnauthorizedAccessException(ExceptionMessages.EXC0001);
             _httpContextAccessor.HttpContext?.Items.TryAdd("CompanyId", company.CompanyId);

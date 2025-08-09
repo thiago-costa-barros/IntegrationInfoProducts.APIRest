@@ -1,5 +1,5 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Domain.Entities;
+using CommonSolution.Entities.IntegrationSchema;
 using Microsoft.EntityFrameworkCore;
 
 public class ApplicationDbContext : DbContext

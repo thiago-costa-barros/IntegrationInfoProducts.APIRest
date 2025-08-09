@@ -1,4 +1,4 @@
-﻿using CommonSolution.Entities;
+﻿using CommonSolution.Entities.Common;
 using CommonSolution.Entities.Logging;
 using ExternalWebhookReceiverAPI.Application.Options;
 using Microsoft.Extensions.Configuration;

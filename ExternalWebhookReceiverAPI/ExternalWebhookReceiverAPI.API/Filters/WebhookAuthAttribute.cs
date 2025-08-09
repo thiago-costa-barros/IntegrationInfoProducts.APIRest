@@ -1,11 +1,11 @@
 ﻿using ExternalWebhookReceiverAPI.API.Helpers;
-using CommonSolution.DTOs;
 using ExternalWebhookReceiverAPI.Application.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
-using ExternalWebhookReceiverAPI.Domain.Common.Resources;
+using CommonSolution.Resources;
+using CommonSolution.Abstractions.DTOs;
 
 namespace ExternalWebhookReceiverAPI.API.Filters
 {

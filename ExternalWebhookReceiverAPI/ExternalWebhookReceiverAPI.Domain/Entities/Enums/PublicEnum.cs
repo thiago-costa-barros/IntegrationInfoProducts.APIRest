@@ -4,26 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ExternalWebhookReceiverAPI.Domain.Entities.Enums
 {
-    public enum ExternalWebhookReceiverSourceType
-    {
-        Hotmart = 1,
-        Udemy = 2,
-    }
-
-    public enum ExternalWebhookReceiverStatus
-    {
-        Created = 0,
-        Pending = 1,
-        Proccessed = 2,
-        Error = 3,
-    }
-
-    public enum ExternalAuthenticationType
-    {
-        Hotmart = 1,
-        Udemy = 2,
-    }
-
     public enum HotmartWebhookEventType
     {
         [Display(ResourceType = typeof(HotmartMessages), Name = "HWB0001")]

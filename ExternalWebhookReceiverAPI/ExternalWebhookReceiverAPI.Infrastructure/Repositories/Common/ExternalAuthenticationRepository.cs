@@ -1,7 +1,7 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.DTOs.Common;
-using ExternalWebhookReceiverAPI.Infrastructure.Interfaces.DAOs;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
+using CommonSolution.Entities.Common.Enums;
+using CommonSolution.Interfaces.Repositories;
+using CommonSolution.Interfaces.DAOs;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Repositories.Common
 {
@@ -12,9 +12,9 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Repositories.Common
         {
             _externalAuthenticationDAO = externalAuthenticationDAO;
         }
-        public async Task<Company?> GetCompanyByTokenAsync(ExternalAuthenticationDTO externalAuth)
+        public async Task<Company?> GetCompanyByTokenAsync(string? externalAuth, ExternalAuthenticationType externalAuthenticationType)
         {
-            return await _externalAuthenticationDAO.GetCompanyByTokenAsync(externalAuth.AuthKey, externalAuth.Type);
+            return await _externalAuthenticationDAO.GetCompanyByTokenAsync(externalAuth, externalAuthenticationType);
         }
     }
 }
