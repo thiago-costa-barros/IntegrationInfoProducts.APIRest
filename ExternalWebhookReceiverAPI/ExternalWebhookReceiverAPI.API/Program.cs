@@ -23,6 +23,8 @@ builder.Services.Configure<RouteOptions>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Configuration.AddEnvironmentVariables();
+
 var stringSqlServer = builder.Configuration.GetConnectionString("DefaultConnectionSqlServer");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(stringSqlServer));  
