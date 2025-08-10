@@ -8,7 +8,7 @@ CREATE TABLE IntegrationSchema.ExternalWebhookReceiver (
     SourceType INT NOT NULL,
     Status INT NOT NULL,
     CompanyId INT NOT NULL,
-    ExternalIdentifier VARCHAR(256) UNIQUE,
+    ExternalIdentifier VARCHAR(256) UNIQUE NOT NULL,
     Payload VARCHAR(MAX) NOT NULL, --Payload Json mas convertido para string 
     CreationDate DATETIME2 DEFAULT GETUTCDATE(),
     UpdateDate DATETIME2 DEFAULT GETUTCDATE(),

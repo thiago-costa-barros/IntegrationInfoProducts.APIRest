@@ -124,7 +124,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Migrations
                     b.Property<string>("ExternalIdentifier")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<JsonElement>("Payload")
+                    b.Property<string>("Payload")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SourceType")
