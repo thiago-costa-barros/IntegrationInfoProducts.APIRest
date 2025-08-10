@@ -1,4 +1,5 @@
 ﻿using CommonSolution.Entities.CoreSchema;
+using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services
 {
@@ -14,6 +15,6 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services
         /// </summary>
         /// <param name="token">The external authentication token (e.g., from Hotmart, Udemy).</param>
         /// <returns>The company associated with the token, or null if invalid.</returns>
-        Task<Company?> GetCompanyFromTokenAsync(string token);
+        Task<Company?> GetCompanyFromTokenAsync(ExternalAuthenticationDTO externalAuthenticationDTO);
     }
 }

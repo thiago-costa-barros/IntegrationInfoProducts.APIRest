@@ -12,23 +12,24 @@ using Microsoft.Extensions.Options;
 using CommonSolution.Entities.Common;
 using CommonSolution.Interfaces.Repositories;
 using CommonSolution.Entities.IntegrationSchema;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
 
 namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 {
     public class HotmartWebhookService : IHotmartWebhookService
     {
-        private readonly IExternalAuthenticationRepository _externalAuthRepository;
+        private readonly IExternalAuthenticationService _externalAuthService;
         private readonly IOptions<DefaultUserService> _defaultUser;
         private readonly IExternalWebhookReceiverRepository _externalWebhookReceiverRepository;
         private readonly IValidator<HotmartWebhookDTO> _validator;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public HotmartWebhookService(IExternalAuthenticationRepository externalAuthRepository,
+        public HotmartWebhookService(IExternalAuthenticationService externalAuthService,
             IOptions<DefaultUserService> defaultUser,
             IExternalWebhookReceiverRepository externalWebhookReceiverRepository,
             IValidator<HotmartWebhookDTO> validator,
             IHttpContextAccessor httpContextAccessor)
         {
-            _externalAuthRepository = externalAuthRepository;
+            _externalAuthService = externalAuthService;
             _defaultUser = defaultUser;
             _externalWebhookReceiverRepository = externalWebhookReceiverRepository;
             _validator = validator;
@@ -43,7 +44,7 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
                 throw new ValidationException(validationResult.Errors);
             }
 
-            Company? company = await GetCompanyByTokenAsync(externalAuth);
+            Company? company = await _externalAuthService.GetCompanyFromTokenAsync(externalAuth);
 
             await ValidationHotmartWebhook(payload, company);
 
@@ -65,16 +66,6 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
             ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload.Id, company);
             if (existExternalWebhookReceiver != null)
                 throw new ArgumentException(string.Format(HotmartMessages.EXC0002, payload.Id));
-        }
-
-        private async Task<Company> GetCompanyByTokenAsync(ExternalAuthenticationDTO externalAuth)
-        {
-            Company? company = await _externalAuthRepository.GetCompanyByTokenAsync(externalAuth.AuthKey, externalAuth.Type);
-            if (company == null)
-                throw new UnauthorizedAccessException(ExceptionMessages.EXC0001);
-            _httpContextAccessor.HttpContext?.Items.TryAdd("CompanyId", company.CompanyId);
-
-            return company;
         }
     }
 }
