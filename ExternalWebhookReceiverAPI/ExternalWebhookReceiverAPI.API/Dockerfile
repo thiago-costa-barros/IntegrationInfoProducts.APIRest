@@ -16,6 +16,6 @@ RUN dotnet publish ExternalWebhookReceiverAPI/ExternalWebhookReceiverAPI.API/Ext
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 # Render injeta $PORT; a app deve escutar nele
-ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT}
+ENV ASPNETCORE_HTTP_PORTS=8080
 COPY --from=build /app/publish ./
 ENTRYPOINT ["dotnet", "ExternalWebhookReceiverAPI.API.dll"]
