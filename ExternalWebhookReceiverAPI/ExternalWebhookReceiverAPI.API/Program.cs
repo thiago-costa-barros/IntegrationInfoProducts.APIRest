@@ -1,5 +1,4 @@
 using CommonSolution.Filters;
-using CommonSolution.Interfaces.Logging;
 using CommonSolution.Middleware;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
@@ -43,6 +42,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Enable ping endpoint for health checks
+app.MapGet("/health", () => Results.Ok(new { status = "OK", time = DateTime.UtcNow }));
 
 app.UseHttpsRedirection();
 
