@@ -1,5 +1,4 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Resources;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
@@ -10,7 +9,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using CommonSolution.Entities.Common;
-using CommonSolution.Interfaces.Repositories;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using CommonSolution.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
 

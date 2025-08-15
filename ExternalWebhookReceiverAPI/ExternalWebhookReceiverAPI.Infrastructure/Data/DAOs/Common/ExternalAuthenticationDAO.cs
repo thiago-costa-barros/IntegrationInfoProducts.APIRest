@@ -1,6 +1,6 @@
 ﻿using CommonSolution.Entities.Common.Enums;
 using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Interfaces.DAOs;
+using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
