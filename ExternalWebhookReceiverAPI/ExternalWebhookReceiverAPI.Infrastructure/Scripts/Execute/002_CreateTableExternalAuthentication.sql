@@ -1,27 +1,22 @@
 --Release/002_CreateTableExternalAuthentication
 
-USE tc_portfolio
-GO
-
-CREATE TABLE IntegrationSchema.ExternalAuthentication (
-    ExternalAuthenticationId INT PRIMARY KEY IDENTITY(1,1),
-    AuthType INT NOT NULL,
-    AuthKey NVARCHAR(512) NOT NULL,
-    CompanyId INT NOT NULL,
-    CreationDate DATETIME2 DEFAULT GETUTCDATE(),
-    UpdateDate DATETIME2 DEFAULT GETUTCDATE(),
-    CreationUserId INT NOT NULL,
-    UpdateUserId INT NOT NULL,
-    DeletionDate DATETIME2 NULL,
-    
-    CONSTRAINT UQ_ExternalAuthentication_AuthType_AuthKey UNIQUE (AuthType, AuthKey),
-
-    FOREIGN KEY (CompanyId) REFERENCES CoreSchema.Company(CompanyId)
+-- ==========================================
+-- Tabela ExternalWebhookReceiver
+-- ==========================================
+CREATE TABLE "IntegrationSchema"."ExternalWebhookReceiver" (
+    "ExternalWebhookReceiverId" SERIAL PRIMARY KEY,
+    "SourceType" INT NOT NULL,
+    "Status" INT NOT NULL,
+    "CompanyId" INT NOT NULL,
+    "ExternalIdentifier" VARCHAR(256) NOT NULL,
+    "Payload" JSONB NOT NULL, -- alterado de VARCHAR(MAX) para JSONB
+    "CreationDate" TIMESTAMPTZ DEFAULT now(),
+    "UpdateDate" TIMESTAMPTZ DEFAULT now(),
+    "CreationUserId" INT NOT NULL,
+    "UpdateUserId" INT NOT NULL,
+    "DeletionDate" TIMESTAMPTZ DEFAULT NULL,
+    CONSTRAINT "UQ_ExternalWebhookReceiver_ExternalIdentifier"
+        UNIQUE ("ExternalIdentifier"),
+    CONSTRAINT fk_webhookreceiver_company FOREIGN KEY ("CompanyId")
+        REFERENCES "CoreSchema"."Company"("CompanyId")
 );
-GO
-
--- Índice para leitura rápida via AuthType + AuthKey (mesmo que já seja único, ajuda performance)
-CREATE NONCLUSTERED INDEX IX_ExternalAuthentication_AuthType_AuthKey
-ON IntegrationSchema.ExternalAuthentication (AuthType, AuthKey, DeletionDate)
-INCLUDE (CompanyId, ExternalAuthenticationId);
-GO
