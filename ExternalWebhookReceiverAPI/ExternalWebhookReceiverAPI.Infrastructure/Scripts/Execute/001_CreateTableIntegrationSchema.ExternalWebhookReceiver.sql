@@ -8,6 +8,7 @@ CREATE TABLE "IntegrationSchema"."ExternalAuthentication" (
     "AuthType" INT NOT NULL,
     "AuthKey" VARCHAR(512) NOT NULL,
     "CompanyId" INT NOT NULL,
+    "BusinessUnitId" INT NOT NULL,
     "CreationDate" TIMESTAMPTZ DEFAULT now(),
     "UpdateDate" TIMESTAMPTZ DEFAULT now(),
     "CreationUserId" INT NOT NULL,
@@ -16,5 +17,7 @@ CREATE TABLE "IntegrationSchema"."ExternalAuthentication" (
     CONSTRAINT "UQ_ExternalAuthentication_AuthType_AuthKey"
         UNIQUE ("AuthType", "AuthKey"),
     CONSTRAINT fk_externalauth_company FOREIGN KEY ("CompanyId")
-        REFERENCES "CoreSchema"."Company"("CompanyId")
+        REFERENCES "CoreSchema"."Company"("CompanyId"),
+    CONSTRAINT fk_externalauth_businessunit FOREIGN KEY ("BusinessUnitId")
+        REFERENCES "CoreSchema"."BusinessUnit" ("BusinessUnitId")
 );

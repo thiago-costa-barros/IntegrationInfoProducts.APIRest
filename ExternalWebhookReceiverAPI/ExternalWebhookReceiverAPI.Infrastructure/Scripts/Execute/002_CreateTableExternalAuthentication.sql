@@ -8,6 +8,7 @@ CREATE TABLE "IntegrationSchema"."ExternalWebhookReceiver" (
     "SourceType" INT NOT NULL,
     "Status" INT NOT NULL,
     "CompanyId" INT NOT NULL,
+    "BusinessUnitId" INT NOT NULL,
     "ExternalIdentifier" VARCHAR(256) NOT NULL,
     "Payload" JSONB NOT NULL, -- alterado de VARCHAR(MAX) para JSONB
     "CreationDate" TIMESTAMPTZ DEFAULT now(),
@@ -18,5 +19,7 @@ CREATE TABLE "IntegrationSchema"."ExternalWebhookReceiver" (
     CONSTRAINT "UQ_ExternalWebhookReceiver_ExternalIdentifier"
         UNIQUE ("ExternalIdentifier"),
     CONSTRAINT fk_webhookreceiver_company FOREIGN KEY ("CompanyId")
-        REFERENCES "CoreSchema"."Company"("CompanyId")
+        REFERENCES "CoreSchema"."Company"("CompanyId"),
+    CONSTRAINT fk_externalauth_businessunit FOREIGN KEY ("BusinessUnitId")
+        REFERENCES "CoreSchema"."BusinessUnit" ("BusinessUnitId")
 );

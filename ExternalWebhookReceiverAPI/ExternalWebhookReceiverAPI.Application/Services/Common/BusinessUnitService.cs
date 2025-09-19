@@ -1,0 +1,30 @@
+﻿using CommonSolution.Entities.CoreSchema;
+using CommonSolution.Resources;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
+using Microsoft.AspNetCore.Http;
+
+namespace ExternalWebhookReceiverAPI.Application.Services.Common
+{
+    public class BusinessUnitService : IBusinessUnitService
+    {
+        private readonly IBusinessUnitRepository _businessUnitRepository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        
+        public BusinessUnitService(IBusinessUnitRepository businessUnitRepository, IHttpContextAccessor httpContextAccessor)
+        {
+            _businessUnitRepository = businessUnitRepository;
+            _httpContextAccessor = httpContextAccessor;
+        }
+        public async Task<BusinessUnit?> GetBusinessUnitByTaxNumberAsync(string? taxNumber)
+        {
+            BusinessUnit? businessUnit = await _businessUnitRepository.GetBusinessUnitByTaxNumberAsync(taxNumber);
+            if (businessUnit == null)
+                throw new UnauthorizedAccessException(ExceptionMessages.EXC0002);
+
+            _httpContextAccessor.HttpContext?.Items.TryAdd("CompanyId", businessUnit.CompanyId);
+
+            return businessUnit;
+        }
+    }
+}
