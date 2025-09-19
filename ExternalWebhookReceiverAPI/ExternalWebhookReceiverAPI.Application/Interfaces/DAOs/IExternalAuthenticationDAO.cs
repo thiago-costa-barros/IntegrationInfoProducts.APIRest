@@ -1,5 +1,6 @@
 ﻿using CommonSolution.Entities.Common.Enums;
 using CommonSolution.Entities.CoreSchema;
+using CommonSolution.Entities.IntegrationSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
 {
@@ -10,10 +11,10 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
     public interface IExternalAuthenticationDAO
     {
         /// <summary>
-        /// Fetches the company entity linked to the provided external authentication token.
+        /// Fetches the ExternalAuthentication entity linked to the provided external authentication token.
         /// Executes the query using EF Core based on AuthType and AuthKey.
         /// </summary>
-        /// <returns>The company entity if a match is found; otherwise, null.</returns>
-        Task<Company?> GetCompanyByTokenAsync(string externalAuth, ExternalAuthenticationType type);
+        /// <returns>The ExternalAuthentication entity if a match is found; otherwise, null.</returns>
+        Task<ExternalAuthentication?> GetExternalAuthenticationByTokenAsync(string externalAuth, ExternalAuthenticationType type);
     }
 }

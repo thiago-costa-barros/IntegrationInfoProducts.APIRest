@@ -11,4 +11,5 @@ public class ApplicationDbContext : DbContext
     public DbSet<Company> Company { get; set; }
     public DbSet<ExternalWebhookReceiver> ExternalWebhookReceiver { get; set; }
     public DbSet<ExternalAuthentication> ExternalAuthentication { get; set; }
+    public DbSet<BusinessUnit> BusinessUnit { get; set; }   
 }

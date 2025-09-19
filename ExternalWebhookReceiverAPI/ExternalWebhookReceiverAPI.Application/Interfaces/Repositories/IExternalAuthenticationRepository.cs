@@ -1,5 +1,6 @@
-﻿using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Entities.Common.Enums;
+﻿using CommonSolution.Entities.Common.Enums;
+using CommonSolution.Entities.CoreSchema;
+using CommonSolution.Entities.IntegrationSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
 {
@@ -10,11 +11,11 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
     public interface IExternalAuthenticationRepository
     {
         /// <summary>
-        /// Retrieves the company entity associated with the given external authentication token.
+        /// Retrieves the ExternalAuthentication entity associated with the given external authentication token.
         /// Delegates query execution to the data access layer.
         /// </summary>
-        /// <returns>The company entity associated with the token, or null if not found.</returns>
-        Task<Company?> GetCompanyByTokenAsync(string? externalAuth, ExternalAuthenticationType externalAuthenticationType);
+        /// <returns>The ExternalAuthentication entity associated with the token, or null if not found.</returns>
+        Task<ExternalAuthentication?> GetExternalAuthenticationByTokenAsync(string? externalAuth, ExternalAuthenticationType externalAuthenticationType);
     }
 
 }

@@ -39,18 +39,18 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
             var validationResult = await _validator.ValidateAsync(payload);
 
             if (!validationResult.IsValid)
-            {
                 throw new ValidationException(validationResult.Errors);
-            }
 
-            Company? company = await _externalAuthService.GetCompanyFromTokenAsync(externalAuth);
+            ExternalAuthentication? externalAuthentication = await _externalAuthService.GetExternalAuthenticationFromTokenAsync(externalAuth);
 
-            await ValidationHotmartWebhook(payload, company);
+            BusinessUnit? businessUnit = new BusinessUnit();
+
+            await ValidationHotmartWebhook(payload, businessUnit);
 
             DefaultUserService defaultUser = _defaultUser.Value;
             ExternalWebhookReceiver externalWebhookReceiver = HotmartWebhookMapper.ToExternalWebhookReceiver(
                 dto: payload,
-                company: company,
+                businessUnit: businessUnit,
                 sourceType: ExternalWebhookReceiverSourceType.Hotmart,
                 defaultUser: defaultUser
             );
@@ -60,9 +60,9 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
             return await Task.FromResult(payload);
         }
 
-        private async Task ValidationHotmartWebhook(HotmartWebhookDTO payload, Company company)
+        private async Task ValidationHotmartWebhook(HotmartWebhookDTO payload, BusinessUnit businessUnit)
         {
-            ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload.Id, company);
+            ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload.Id, businessUnit);
             if (existExternalWebhookReceiver != null)
                 throw new ArgumentException(string.Format(HotmartMessages.EXC0002, payload.Id));
         }
