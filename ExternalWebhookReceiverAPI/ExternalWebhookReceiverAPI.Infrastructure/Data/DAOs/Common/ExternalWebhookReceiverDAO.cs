@@ -1,4 +1,5 @@
-﻿using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.CrossCutting;
+using CommonSolution.Entities.CoreSchema;
 using CommonSolution.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +14,12 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             _context = context;
         }
 
-        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(string identifier, Company company)
+        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(string identifier, BusinessUnit businessUnit)
         {
-            ExternalWebhookReceiver? result = await _context.ExternalWebhookReceiver
+            ExternalWebhookReceiver? result = await _context.Set<ExternalWebhookReceiver>()
                 .FirstOrDefaultAsync(x =>
                 x.ExternalIdentifier == identifier &&
-                x.CompanyId == company.CompanyId &&
+                x.BusinessUnitId == businessUnit.BusinessUnitId &&
                 x.DeletionDate == null);
 
             return result;
@@ -31,7 +32,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             externalWebhookReceiver.CreationDate = dateNow;
             externalWebhookReceiver.UpdateDate = dateNow;
 
-            _context.ExternalWebhookReceiver.Add(externalWebhookReceiver);
+            _context.Set<ExternalWebhookReceiver>().Add(externalWebhookReceiver);
 
             await _context.SaveChangesAsync();
         }
