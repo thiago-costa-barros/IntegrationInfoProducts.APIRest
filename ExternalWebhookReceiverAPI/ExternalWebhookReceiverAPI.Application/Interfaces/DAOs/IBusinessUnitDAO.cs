@@ -10,9 +10,9 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
     {
         /// <summary>
         /// Fetches the BusinessUnit entity linked to the provided BusinessUnit.
-        /// Executes the query using EF Core based on TaxNumber.
+        /// Executes the query using EF Core based on Id.
         /// </summary>
         /// <returns>The BusinessUnit entity if a match is found; otherwise, null.</returns>
-        Task<BusinessUnit?> GetBusinessUnitByTaxNumberAsync(string? taxNumber);
+        Task<BusinessUnit?> GetBusinessUnitById(int businessUnitId);
     }
 }

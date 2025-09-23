@@ -1,4 +1,5 @@
-﻿using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.CrossCutting;
+using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
@@ -10,7 +11,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
         {
             _context = context;
         }
-        public async Task<BusinessUnit?> GetBusinessUnitByTaxNumberAsync(string? taxNumber)
+        public async Task<BusinessUnit?> GetBusinessUnitById(int businessUnitId)
         {
             throw new NotImplementedException();
         }

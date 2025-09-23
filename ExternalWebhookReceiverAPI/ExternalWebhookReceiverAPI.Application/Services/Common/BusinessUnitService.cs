@@ -16,9 +16,9 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Common
             _businessUnitRepository = businessUnitRepository;
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<BusinessUnit?> GetBusinessUnitByTaxNumberAsync(string? taxNumber)
+        public async Task<BusinessUnit?> GetBusinessUnitById(int businessUnitId)
         {
-            BusinessUnit? businessUnit = await _businessUnitRepository.GetBusinessUnitByTaxNumberAsync(taxNumber);
+            BusinessUnit? businessUnit = await _businessUnitRepository.GetBusinessUnitById(businessUnitId);
             if (businessUnit == null)
                 throw new UnauthorizedAccessException(ExceptionMessages.EXC0002);
 

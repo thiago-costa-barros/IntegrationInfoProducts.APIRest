@@ -9,11 +9,11 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services
     public interface IBusinessUnitService
     {
         /// <summary>
-        /// Resolves and returns the BusinessUnit associated with the provided TaxNumber.
+        /// Resolves and returns the BusinessUnit associated with the provided Id.
         /// Applies validation and business rules before returning the result.
         /// </summary>
-        /// <param name="taxNumber">The BusinessUnitTaxNumber.</param>
-        /// <returns>The BusinessUnit associated with the TaxNumber, or null if invalid.</returns>
-        Task<BusinessUnit?> GetBusinessUnitByTaxNumberAsync(string? taxNumber);
+        /// <param name="taxNumber">The BusinessUnitId.</param>
+        /// <returns>The BusinessUnit associated with the Id, or null if invalid.</returns>
+        Task<BusinessUnit?> GetBusinessUnitById(int businessUnitId);
     }
 }

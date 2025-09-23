@@ -9,10 +9,10 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
     public interface IBusinessUnitRepository
     {
         /// <summary>
-        /// Retrieves the BusinessUnit entity associated with the given BusinessUnit TaxNumber.
+        /// Retrieves the BusinessUnit entity associated with the given BusinessUnit Id.
         /// Delegates query execution to the data access layer.
         /// </summary>
-        /// <returns>The BusinessUnit entity associated with the TaxNumber, or null if not found.</returns>
-        Task<BusinessUnit?> GetBusinessUnitByTaxNumberAsync(string? taxNumber);
+        /// <returns>The BusinessUnit entity associated with the Id, or null if not found.</returns>
+        Task<BusinessUnit?> GetBusinessUnitById(int businessUnitId);
     }
 }
