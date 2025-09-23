@@ -1,4 +1,5 @@
-﻿using CommonSolution.Entities.Common.Enums;
+﻿using CommonSolution.CrossCutting;
+using CommonSolution.Entities.Common.Enums;
 using CommonSolution.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
 
         public async Task<ExternalAuthentication?> GetExternalAuthenticationByTokenAsync(string externalAuth, ExternalAuthenticationType type)
         {
-            var result = await _context.ExternalAuthentication
+            var result = await _context.Set<ExternalAuthentication>()
                 .AsNoTracking()
                 .FirstOrDefaultAsync(x =>
                     x.AuthKey == externalAuth &&

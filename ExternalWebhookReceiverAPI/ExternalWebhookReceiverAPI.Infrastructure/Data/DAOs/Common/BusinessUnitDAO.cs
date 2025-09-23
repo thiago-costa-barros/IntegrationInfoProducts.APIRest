@@ -1,6 +1,7 @@
 ﻿using CommonSolution.CrossCutting;
 using CommonSolution.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
 {
@@ -13,7 +14,12 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
         }
         public async Task<BusinessUnit?> GetBusinessUnitById(int businessUnitId)
         {
-            throw new NotImplementedException();
+            BusinessUnit? result = await _context.Set<BusinessUnit>()
+                .FirstOrDefaultAsync(x => 
+                x.BusinessUnitId == businessUnitId 
+                && x.DeletionDate == null);
+
+            return result;
         }
     }
 }
