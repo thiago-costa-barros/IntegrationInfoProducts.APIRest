@@ -11,7 +11,7 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
         public static IServiceCollection AddDependencyInjectionConfig(this IServiceCollection services)
         {
             // Infrastructure
-            services.AddDbContext<ApplicationDbContext>();
+            services.AddDbContext<ApplicationDbContextLocal>();
 
             // Unit of Work
             //services.AddScoped<IDbTransaction, DbTransaction>();
