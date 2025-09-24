@@ -23,6 +23,7 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Common
                 throw new UnauthorizedAccessException(ExceptionMessages.EXC0002);
 
             _httpContextAccessor.HttpContext?.Items.TryAdd("CompanyId", businessUnit.CompanyId);
+            _httpContextAccessor.HttpContext?.Items.TryAdd("BusinessUnitId", businessUnit.BusinessUnitId);
 
             return businessUnit;
         }
