@@ -19,20 +19,24 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
     {
         private readonly IExternalAuthenticationService _externalAuthService;
         private readonly IOptions<DefaultUserService> _defaultUser;
-        private readonly IExternalWebhookReceiverRepository _externalWebhookReceiverRepository;
+        private readonly IExternalWebhookReceiverService _externalWebhookReceiverService;
         private readonly IValidator<HotmartWebhookDTO> _validator;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IBusinessUnitService _externalBusinessUnitService;
         public HotmartWebhookService(IExternalAuthenticationService externalAuthService,
             IOptions<DefaultUserService> defaultUser,
-            IExternalWebhookReceiverRepository externalWebhookReceiverRepository,
+            IExternalWebhookReceiverService externalWebhookReceiverService,
             IValidator<HotmartWebhookDTO> validator,
-            IHttpContextAccessor httpContextAccessor)
+            IHttpContextAccessor httpContextAccessor,
+            IBusinessUnitService externalBusinessUnitService
+            )
         {
             _externalAuthService = externalAuthService;
             _defaultUser = defaultUser;
-            _externalWebhookReceiverRepository = externalWebhookReceiverRepository;
+            _externalWebhookReceiverService = externalWebhookReceiverService;
             _validator = validator;
             _httpContextAccessor = httpContextAccessor;
+            _externalBusinessUnitService = externalBusinessUnitService;
         }
         public async Task<HotmartWebhookDTO> HandleWebhookService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth)
         {
@@ -42,10 +46,9 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
                 throw new ValidationException(validationResult.Errors);
 
             ExternalAuthentication? externalAuthentication = await _externalAuthService.GetExternalAuthenticationFromTokenAsync(externalAuth);
+            BusinessUnit? businessUnit = await _externalBusinessUnitService.GetBusinessUnitById(externalAuthentication.BusinessUnitId);
 
-            BusinessUnit? businessUnit = new BusinessUnit();
-
-            await ValidationHotmartWebhook(payload, businessUnit);
+            await _externalWebhookReceiverService.ValidationExternalWebhookReceiverIdentifier(payload.Id, businessUnit);
 
             DefaultUserService defaultUser = _defaultUser.Value;
             ExternalWebhookReceiver externalWebhookReceiver = HotmartWebhookMapper.ToExternalWebhookReceiver(
@@ -55,16 +58,9 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
                 defaultUser: defaultUser
             );
 
-            await _externalWebhookReceiverRepository.InsertExternalWebhookAsync(externalWebhookReceiver);
+            await _externalWebhookReceiverService.InsertExternalWebhookReceiver(externalWebhookReceiver);
 
             return await Task.FromResult(payload);
-        }
-
-        private async Task ValidationHotmartWebhook(HotmartWebhookDTO payload, BusinessUnit businessUnit)
-        {
-            ExternalWebhookReceiver? existExternalWebhookReceiver = await _externalWebhookReceiverRepository.GetExternalWebhookReceiverByIdenitifierAndCompanyId(payload.Id, businessUnit);
-            if (existExternalWebhookReceiver != null)
-                throw new ArgumentException(string.Format(HotmartMessages.EXC0002, payload.Id));
         }
     }
 }
