@@ -1,4 +1,5 @@
-﻿using CommonSolution.Handlers;
+﻿using CommonSolution.CrossCutting;
+using CommonSolution.Handlers;
 using CommonSolution.Interfaces.Logging;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.Infrastructure;
@@ -11,7 +12,7 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
         public static IServiceCollection AddDependencyInjectionConfig(this IServiceCollection services)
         {
             // Infrastructure
-            services.AddDbContext<ApplicationDbContextLocal>();
+            services.AddDbContext<ApplicationDbContext>();
 
             // Unit of Work
             //services.AddScoped<IDbTransaction, DbTransaction>();
