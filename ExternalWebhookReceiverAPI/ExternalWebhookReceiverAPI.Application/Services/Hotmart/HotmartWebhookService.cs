@@ -3,13 +3,10 @@ using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Mappings.Hotmart;
-using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 using CommonSolution.Entities.Common.Enums;
 using FluentValidation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using CommonSolution.Entities.Common;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using CommonSolution.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
 
@@ -21,13 +18,11 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
         private readonly IOptions<DefaultUserService> _defaultUser;
         private readonly IExternalWebhookReceiverService _externalWebhookReceiverService;
         private readonly IValidator<HotmartWebhookDTO> _validator;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IBusinessUnitService _externalBusinessUnitService;
         public HotmartWebhookService(IExternalAuthenticationService externalAuthService,
             IOptions<DefaultUserService> defaultUser,
             IExternalWebhookReceiverService externalWebhookReceiverService,
             IValidator<HotmartWebhookDTO> validator,
-            IHttpContextAccessor httpContextAccessor,
             IBusinessUnitService externalBusinessUnitService
             )
         {
@@ -35,7 +30,6 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
             _defaultUser = defaultUser;
             _externalWebhookReceiverService = externalWebhookReceiverService;
             _validator = validator;
-            _httpContextAccessor = httpContextAccessor;
             _externalBusinessUnitService = externalBusinessUnitService;
         }
         public async Task<HotmartWebhookDTO> HandleWebhookService(HotmartWebhookDTO payload, ExternalAuthenticationDTO externalAuth)
