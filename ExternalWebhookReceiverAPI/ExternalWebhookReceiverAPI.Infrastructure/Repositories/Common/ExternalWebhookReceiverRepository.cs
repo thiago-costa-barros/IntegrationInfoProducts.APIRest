@@ -13,9 +13,9 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Repositories.Common
             _externalWebhookReceiverDAO = externalWebhookReceiverDAO;
         }
 
-        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(string? identifier, BusinessUnit company)
+        public async Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(string? identifier, BusinessUnit businessUnit)
         {
-            ExternalWebhookReceiver? result = await _externalWebhookReceiverDAO.GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(identifier, company);
+            ExternalWebhookReceiver? result = await _externalWebhookReceiverDAO.GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(identifier, businessUnit);
 
             return result;
         }
