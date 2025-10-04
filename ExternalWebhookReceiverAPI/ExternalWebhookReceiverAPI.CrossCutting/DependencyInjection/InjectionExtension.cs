@@ -70,6 +70,8 @@ namespace ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection
         private static void AddLogging(this IServiceCollection services)
         {
             services.AddSingleton<ILogHandler, ElasticLogHandler>();
+            services.AddSingleton<ILogHandler, MongoDbLogHandler>();
+            services.AddSingleton<ILogHandler, XmlFileLogHandler>();
         }
     }
 }
