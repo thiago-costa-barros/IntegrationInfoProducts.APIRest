@@ -33,7 +33,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<AssemblyReferenceApplicatio
 
 var app = builder.Build();
 
-app.UseMiddleware<RequestResponseLoggingMiddleware>();
+app.UseMiddleware<ApiLoggingMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
