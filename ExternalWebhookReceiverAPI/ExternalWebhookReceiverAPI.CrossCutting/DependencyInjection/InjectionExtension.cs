@@ -1,4 +1,5 @@
-﻿using CommonSolution.Handlers;
+﻿using CommonSolution.CrossCutting;
+using CommonSolution.Handlers;
 using CommonSolution.Interfaces.Logging;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.Infrastructure;

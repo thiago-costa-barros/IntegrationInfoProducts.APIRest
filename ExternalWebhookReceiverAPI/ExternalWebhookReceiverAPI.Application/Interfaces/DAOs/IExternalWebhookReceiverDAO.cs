@@ -10,6 +10,6 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
     public interface IExternalWebhookReceiverDAO
     {
         Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver);
-        Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdenitifierAndCompanyId(string identifier, Company company);
+        Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(string identifier, BusinessUnit businessUnit);
     }
 }

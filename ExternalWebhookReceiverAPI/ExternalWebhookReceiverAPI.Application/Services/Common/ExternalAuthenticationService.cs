@@ -1,7 +1,8 @@
 ﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
+using CommonSolution.Entities.IntegrationSchema;
 using CommonSolution.Resources;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
+using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 
@@ -17,14 +18,13 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Common
             _externalAuthRepository = externalAuthRepository;
             _httpContextAccessor = httpContextAccessor;
         }
-        public async Task<Company?> GetCompanyFromTokenAsync(ExternalAuthenticationDTO externalAuthenticationDTO)
+        public async Task<ExternalAuthentication?> GetExternalAuthenticationFromTokenAsync(ExternalAuthenticationDTO externalAuthenticationDTO)
         {
-            Company? company = await _externalAuthRepository.GetCompanyByTokenAsync(externalAuthenticationDTO.AuthKey, externalAuthenticationDTO.Type);
-            if (company == null)
-                throw new UnauthorizedAccessException(ExceptionMessages.EXC0001);
-            _httpContextAccessor.HttpContext?.Items.TryAdd("CompanyId", company.CompanyId);
+            ExternalAuthentication? externalAuthentication = await _externalAuthRepository.GetExternalAuthenticationByTokenAsync(externalAuthenticationDTO.AuthKey, externalAuthenticationDTO.Type);
+            if (externalAuthentication == null)
+                throw new UnauthorizedAccessException(ExceptionMessages.InvalidCredentials);
 
-            return company;
+            return externalAuthentication;
         }
     }
 }

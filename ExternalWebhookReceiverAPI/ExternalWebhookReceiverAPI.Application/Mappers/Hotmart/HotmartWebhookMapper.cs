@@ -11,7 +11,7 @@ namespace ExternalWebhookReceiverAPI.Application.Mappings.Hotmart
     {
         public static ExternalWebhookReceiver ToExternalWebhookReceiver(
             HotmartWebhookDTO dto,
-            Company company,
+            BusinessUnit businessUnit,
             ExternalWebhookReceiverSourceType sourceType,
             DefaultUserService defaultUser)
         {
@@ -19,7 +19,8 @@ namespace ExternalWebhookReceiverAPI.Application.Mappings.Hotmart
             {
                 SourceType = sourceType,
                 Status = ExternalWebhookReceiverStatus.Created,
-                CompanyId = company.CompanyId,
+                CompanyId = businessUnit.CompanyId,
+                BusinessUnitId = businessUnit.BusinessUnitId,
                 ExternalIdentifier = dto.Id,
                 Payload = JsonSerializer.Serialize(dto),
                 CreationUserId = defaultUser.DefaultUserId,

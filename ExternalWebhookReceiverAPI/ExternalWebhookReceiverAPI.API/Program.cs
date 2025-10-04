@@ -1,9 +1,9 @@
 using CommonSolution.Filters;
 using CommonSolution.Middleware;
+using CommonSolution.CrossCutting;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore; // Add this using directive for 'UseSqlServer'
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,14 +22,12 @@ builder.Services.Configure<RouteOptions>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configs
 builder.Configuration.AddEnvironmentVariables();
-
-var stringSqlServer = builder.Configuration.GetConnectionString("DefaultConnectionSqlServer");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(stringSqlServer));  
-
 builder.Services.AddOptionsInjectionConfig(builder.Configuration);
 builder.Services.AddDependencyInjectionConfig();
+builder.Services.AddDatabaseConfig(builder.Configuration);
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddValidatorsFromAssemblyContaining<AssemblyReferenceApplication>();
 
