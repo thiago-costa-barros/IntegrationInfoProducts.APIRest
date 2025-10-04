@@ -1,4 +1,4 @@
-﻿using CommonSolution.CrossCutting;
+﻿using CommonSolution.CrossCutting.PostgresSQL;
 using CommonSolution.Handlers;
 using CommonSolution.Interfaces.Logging;
 using ExternalWebhookReceiverAPI.Application.Services;

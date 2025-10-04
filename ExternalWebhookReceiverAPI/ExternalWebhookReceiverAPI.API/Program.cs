@@ -1,6 +1,6 @@
 using CommonSolution.Filters;
 using CommonSolution.Middleware;
-using CommonSolution.CrossCutting;
+using CommonSolution.CrossCutting.PostgresSQL;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
 using FluentValidation;

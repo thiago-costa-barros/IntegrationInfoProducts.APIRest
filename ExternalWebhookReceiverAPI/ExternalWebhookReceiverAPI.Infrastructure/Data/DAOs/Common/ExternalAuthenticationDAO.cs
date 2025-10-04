@@ -1,4 +1,4 @@
-﻿using CommonSolution.CrossCutting;
+﻿using CommonSolution.CrossCutting.PostgresSQL;
 using CommonSolution.Entities.Common.Enums;
 using CommonSolution.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
