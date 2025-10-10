@@ -41,9 +41,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Enable ping endpoint for health checks
-app.MapGet("/health", () => Results.Ok(new { status = "OK", time = DateTime.UtcNow }));
-
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
