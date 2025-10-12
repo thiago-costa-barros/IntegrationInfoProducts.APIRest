@@ -1,5 +1,4 @@
-﻿using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Entities.IntegrationSchema;
+﻿using CommonSolution.Entities.IntegrationSchema;
 using CommonSolution.Resources;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
@@ -11,12 +10,10 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Common
     public class ExternalAuthenticationService : IExternalAuthenticationService
     {
         private readonly IExternalAuthenticationRepository _externalAuthRepository;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         public ExternalAuthenticationService(IExternalAuthenticationRepository externalAuthRepository,
             IHttpContextAccessor httpContextAccessor)
         {
             _externalAuthRepository = externalAuthRepository;
-            _httpContextAccessor = httpContextAccessor;
         }
         public async Task<ExternalAuthentication?> GetExternalAuthenticationFromTokenAsync(ExternalAuthenticationDTO externalAuthenticationDTO)
         {
