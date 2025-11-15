@@ -1,9 +1,9 @@
-using CommonSolution.Filters;
-using CommonSolution.Middleware;
 using CommonSolution.CrossCutting.PostgresSQL;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.CrossCutting.DependencyInjection;
 using FluentValidation;
+using CommonSolution.Utils.Filters;
+using CommonSolution.Utils.Middleware;
 
 
 var builder = WebApplication.CreateBuilder(args);

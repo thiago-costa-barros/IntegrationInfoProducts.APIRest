@@ -1,6 +1,6 @@
-﻿using CommonSolution.Entities.Common.Enums;
-using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Entities.IntegrationSchema;
+﻿using CommonSolution.Domain.Entities.Common.Enums;
+using CommonSolution.Domain.Entities.IntegrationSchema;
+using CommonSolution.Domain.Entities.CoreSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
 {

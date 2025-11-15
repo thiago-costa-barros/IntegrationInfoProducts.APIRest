@@ -1,8 +1,8 @@
-﻿using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Entities.Common.Enums;
+﻿using CommonSolution.Domain.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
-using CommonSolution.Entities.IntegrationSchema;
+using CommonSolution.Domain.Entities.IntegrationSchema;
+using CommonSolution.Domain.Entities.Common.Enums;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Repositories.Common
 {

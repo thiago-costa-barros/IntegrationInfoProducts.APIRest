@@ -1,4 +1,4 @@
-﻿using CommonSolution.Entities.IntegrationSchema;
+﻿using CommonSolution.Domain.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services

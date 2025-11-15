@@ -1,5 +1,5 @@
-﻿using CommonSolution.Entities.Common;
-using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.Domain.Entities.Common;
+using CommonSolution.Domain.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using Microsoft.Extensions.Options;

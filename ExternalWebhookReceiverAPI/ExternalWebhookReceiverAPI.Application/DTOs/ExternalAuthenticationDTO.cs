@@ -1,4 +1,4 @@
-﻿using CommonSolution.Entities.Common.Enums;
+﻿using CommonSolution.Domain.Entities.Common.Enums;
 
 namespace ExternalWebhookReceiverAPI.Application.DTOs.Common
 {

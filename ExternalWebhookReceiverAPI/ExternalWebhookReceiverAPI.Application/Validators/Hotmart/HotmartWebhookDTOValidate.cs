@@ -1,7 +1,7 @@
 ﻿using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
-using CommonSolution.Helpers;
 using ExternalWebhookReceiverAPI.Domain.Common.Resources;
 using FluentValidation;
+using CommonSolution.Utils.Helpers;
 
 namespace ExternalWebhookReceiverAPI.Application.Validators.Hotmart
 {

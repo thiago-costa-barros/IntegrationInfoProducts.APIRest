@@ -1,5 +1,5 @@
-﻿using CommonSolution.Entities.IntegrationSchema;
-using CommonSolution.Resources;
+﻿using CommonSolution.Domain.Entities.IntegrationSchema;
+using CommonSolution.Domain.Resources;
 using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Services;

@@ -1,14 +1,14 @@
-﻿using CommonSolution.Entities.CoreSchema;
-using ExternalWebhookReceiverAPI.Application.DTOs.Common;
+﻿using ExternalWebhookReceiverAPI.Application.DTOs.Common;
 using ExternalWebhookReceiverAPI.Application.DTOs.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Hotmart;
 using ExternalWebhookReceiverAPI.Application.Mappings.Hotmart;
-using CommonSolution.Entities.Common.Enums;
 using FluentValidation;
 using Microsoft.Extensions.Options;
-using CommonSolution.Entities.Common;
-using CommonSolution.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
+using CommonSolution.Domain.Entities.Common;
+using CommonSolution.Domain.Entities.CoreSchema;
+using CommonSolution.Domain.Entities.IntegrationSchema;
+using CommonSolution.Domain.Entities.Common.Enums;
 
 namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 {

@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
-using CommonSolution.Resources;
-using CommonSolution.Abstractions.DTOs;
+using CommonSolution.Domain.Resources;
+using CommonSolution.Domain.Abstractions.DTOs;
 
 namespace ExternalWebhookReceiverAPI.API.Filters
 {

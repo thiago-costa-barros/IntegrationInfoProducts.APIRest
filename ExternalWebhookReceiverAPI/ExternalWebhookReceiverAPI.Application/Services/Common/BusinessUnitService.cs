@@ -1,5 +1,5 @@
-﻿using CommonSolution.Entities.CoreSchema;
-using CommonSolution.Resources;
+﻿using CommonSolution.Domain.Entities.CoreSchema;
+using CommonSolution.Domain.Resources;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Repositories;
 using ExternalWebhookReceiverAPI.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Http;

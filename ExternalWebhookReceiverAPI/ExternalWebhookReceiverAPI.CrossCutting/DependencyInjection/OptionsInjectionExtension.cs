@@ -1,4 +1,4 @@
-﻿using CommonSolution.Helpers;
+﻿using CommonSolution.Utils.Helpers;
 using ExternalWebhookReceiverAPI.Application.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

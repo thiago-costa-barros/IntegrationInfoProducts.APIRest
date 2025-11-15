@@ -1,6 +1,6 @@
 ﻿using CommonSolution.CrossCutting.PostgresSQL;
-using CommonSolution.Entities.Common.Enums;
-using CommonSolution.Entities.IntegrationSchema;
+using CommonSolution.Domain.Entities.Common.Enums;
+using CommonSolution.Domain.Entities.IntegrationSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 using Microsoft.EntityFrameworkCore;
 

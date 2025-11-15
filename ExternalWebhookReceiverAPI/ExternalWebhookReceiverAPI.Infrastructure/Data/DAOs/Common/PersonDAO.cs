@@ -1,4 +1,4 @@
-﻿using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.Domain.Entities.CoreSchema;
 using ExternalWebhookReceiverAPI.Application.Interfaces.DAOs;
 
 namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common

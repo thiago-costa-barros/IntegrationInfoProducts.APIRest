@@ -1,6 +1,6 @@
 ﻿using CommonSolution.CrossCutting.PostgresSQL;
-using CommonSolution.Handlers;
-using CommonSolution.Interfaces.Logging;
+using CommonSolution.Domain.Interfaces.Logging;
+using CommonSolution.Utils.Handlers;
 using ExternalWebhookReceiverAPI.Application.Services;
 using ExternalWebhookReceiverAPI.Infrastructure;
 using FluentValidation;

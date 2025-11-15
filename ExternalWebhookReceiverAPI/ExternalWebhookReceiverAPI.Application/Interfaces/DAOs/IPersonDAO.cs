@@ -1,4 +1,4 @@
-﻿using CommonSolution.Entities.CoreSchema;
+﻿using CommonSolution.Domain.Entities.CoreSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.DAOs
 {
