@@ -150,7 +150,7 @@
     <value>EXC0001 - Identifier não foi localizado na requisição.</value>
   </data>
 	<data name="EXC0002" xml:space="preserve">
-    <value>EXC0002 - Evento com Identifier {0} já existe para essa Company.</value>
+    <value>EXC0002 - Evento com Identifier {0} já existe para essa BusinessUnitId: {1}.</value>
   </data>
 	<data name="EXC0003" xml:space="preserve">
     <value>EXC0003 - O campo {0} é obrigatório.</value>

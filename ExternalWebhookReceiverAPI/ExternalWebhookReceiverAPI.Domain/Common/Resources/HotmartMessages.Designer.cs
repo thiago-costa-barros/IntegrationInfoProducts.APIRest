@@ -70,7 +70,7 @@ namespace ExternalWebhookReceiverAPI.Domain.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EXC0002 - Evento com Identifier {0} já existe para essa Company..
+        ///   Looks up a localized string similar to EXC0002 - Evento com Identifier {0} já existe para essa BusinessUnitId: {1}..
         /// </summary>
         public static string EXC0002 {
             get {
