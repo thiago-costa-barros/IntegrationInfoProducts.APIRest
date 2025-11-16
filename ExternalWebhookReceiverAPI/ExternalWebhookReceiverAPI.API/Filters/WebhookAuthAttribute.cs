@@ -53,9 +53,6 @@ namespace ExternalWebhookReceiverAPI.API.Filters
                 context.Result = new UnauthorizedObjectResult(response);
                 return;
             }
-
-
-            // TODO: validar valor do header se necessário
         }
     }
 }
