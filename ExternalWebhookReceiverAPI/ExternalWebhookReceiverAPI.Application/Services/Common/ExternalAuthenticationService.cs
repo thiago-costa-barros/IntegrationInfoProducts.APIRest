@@ -15,9 +15,9 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Common
         {
             _externalAuthRepository = externalAuthRepository;
         }
-        public async Task<ExternalAuthentication?> GetExternalAuthenticationFromTokenAsync(ExternalAuthenticationDTO externalAuthenticationDTO)
+        public async Task<ExternalAuthentication?> GetExternalAuthenticationByToken(ExternalAuthenticationDTO externalAuthenticationDTO)
         {
-            ExternalAuthentication? externalAuthentication = await _externalAuthRepository.GetExternalAuthenticationByTokenAsync(externalAuthenticationDTO.AuthKey, externalAuthenticationDTO.Type);
+            ExternalAuthentication? externalAuthentication = await _externalAuthRepository.GetExternalAuthenticationByToken(externalAuthenticationDTO.AuthKey, externalAuthenticationDTO.Type);
             if (externalAuthentication == null)
                 throw new UnauthorizedAccessException(ExceptionMessages.InvalidCredentials);
 

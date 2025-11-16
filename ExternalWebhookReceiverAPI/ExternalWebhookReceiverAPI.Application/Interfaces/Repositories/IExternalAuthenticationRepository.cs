@@ -1,6 +1,5 @@
 ﻿using CommonSolution.Domain.Entities.Common.Enums;
 using CommonSolution.Domain.Entities.IntegrationSchema;
-using CommonSolution.Domain.Entities.CoreSchema;
 
 namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
 {
@@ -15,7 +14,7 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
         /// Delegates query execution to the data access layer.
         /// </summary>
         /// <returns>The ExternalAuthentication entity associated with the token, or null if not found.</returns>
-        Task<ExternalAuthentication?> GetExternalAuthenticationByTokenAsync(string? externalAuth, ExternalAuthenticationType externalAuthenticationType);
+        Task<ExternalAuthentication?> GetExternalAuthenticationByToken(string? externalAuth, ExternalAuthenticationType externalAuthenticationType);
     }
 
 }

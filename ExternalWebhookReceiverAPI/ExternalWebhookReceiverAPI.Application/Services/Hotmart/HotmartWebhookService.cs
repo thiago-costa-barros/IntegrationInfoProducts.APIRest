@@ -40,7 +40,7 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
             if (!validationResult.IsValid)
                 throw new ValidationException(validationResult.Errors);
 
-            ExternalAuthentication? externalAuthentication = await _externalAuthService.GetExternalAuthenticationFromTokenAsync(externalAuth);
+            ExternalAuthentication? externalAuthentication = await _externalAuthService.GetExternalAuthenticationByToken(externalAuth);
             BusinessUnit? businessUnit = await _externalBusinessUnitService.GetBusinessUnitById(externalAuthentication.BusinessUnitId);
 
             await _externalWebhookReceiverService.ValidationExternalWebhookReceiverIdentifier(payload.Id, businessUnit);

@@ -15,6 +15,6 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services
         /// </summary>
         /// <param name="token">The external authentication token (e.g., from Hotmart, Udemy).</param>
         /// <returns>The ExternalAuthentication associated with the token, or null if invalid.</returns>
-        Task<ExternalAuthentication?> GetExternalAuthenticationFromTokenAsync(ExternalAuthenticationDTO externalAuthenticationDTO);
+        Task<ExternalAuthentication?> GetExternalAuthenticationByToken(ExternalAuthenticationDTO externalAuthenticationDTO);
     }
 }

@@ -18,7 +18,7 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             _context = context;
         }
 
-        public async Task<ExternalAuthentication?> GetExternalAuthenticationByTokenAsync(string externalAuth, ExternalAuthenticationType type)
+        public async Task<ExternalAuthentication?> GetExternalAuthenticationByToken(string externalAuth, ExternalAuthenticationType type)
         {
             var result = await _context.Set<ExternalAuthentication>()
                 .AsNoTracking()
