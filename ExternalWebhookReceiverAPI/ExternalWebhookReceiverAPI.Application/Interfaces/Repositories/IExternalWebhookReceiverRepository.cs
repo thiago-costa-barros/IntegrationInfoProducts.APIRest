@@ -9,7 +9,8 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Repositories
     /// </summary>
     public interface IExternalWebhookReceiverRepository
     {
-        Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver);
+        Task<ExternalWebhookReceiver> InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver);
         Task<ExternalWebhookReceiver?> GetExternalWebhookReceiverByIdentifierAndBusinessUnitId(string? identifier, BusinessUnit businessUnit);
+        Task InsertExternalWebhookReceiverStatusHistoric(ExternalWebhookReceiverStatusHistoric externalWebhookReceiverStatusHistoric);
     }
 }

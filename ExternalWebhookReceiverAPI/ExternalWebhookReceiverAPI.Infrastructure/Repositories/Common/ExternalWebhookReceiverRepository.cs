@@ -20,9 +20,15 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Repositories.Common
             return result;
         }
 
-        public async Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver)
+        public async Task<ExternalWebhookReceiver> InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver)
         {
-            await _externalWebhookReceiverDAO.InsertExternalWebhookAsync(externalWebhookReceiver);
+            ExternalWebhookReceiver result = await _externalWebhookReceiverDAO.InsertExternalWebhookAsync(externalWebhookReceiver);
+            return result;
+        }
+
+        public async Task InsertExternalWebhookReceiverStatusHistoric(ExternalWebhookReceiverStatusHistoric externalWebhookReceiverStatusHistoric)
+        {
+            await _externalWebhookReceiverDAO.InsertExternalWebhookReceiverStatusHistoric(externalWebhookReceiverStatusHistoric);
         }
     }
 }

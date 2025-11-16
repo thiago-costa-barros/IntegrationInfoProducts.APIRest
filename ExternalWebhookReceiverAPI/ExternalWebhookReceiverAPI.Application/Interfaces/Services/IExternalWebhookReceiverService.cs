@@ -6,6 +6,7 @@ namespace ExternalWebhookReceiverAPI.Application.Interfaces.Services
     public interface IExternalWebhookReceiverService
     {
         Task ValidationExternalWebhookReceiverIdentifier(string identifier, BusinessUnit businessUnit);
-        Task InsertExternalWebhookReceiver(ExternalWebhookReceiver externalWebhookReceiver);
+        Task<ExternalWebhookReceiver> InsertExternalWebhookReceiver(ExternalWebhookReceiver externalWebhookReceiver);
+        Task InsertExternalWebhookReceiverStatusHistoric(ExternalWebhookReceiverStatusHistoric externalWebhookReceiverStatusHistoric);
     }
 }

@@ -25,15 +25,21 @@ namespace ExternalWebhookReceiverAPI.Infrastructure.Data.DAOs.Common
             return result;
         }
 
-        public async Task InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver)
+        public async Task<ExternalWebhookReceiver> InsertExternalWebhookAsync(ExternalWebhookReceiver externalWebhookReceiver)
         {
             var dateNow = DateTime.UtcNow;
 
             externalWebhookReceiver.CreationDate = dateNow;
             externalWebhookReceiver.UpdateDate = dateNow;
-
             _context.Set<ExternalWebhookReceiver>().Add(externalWebhookReceiver);
+            externalWebhookReceiver.ExternalWebhookReceiverId = await _context.SaveChangesAsync();
 
+            return externalWebhookReceiver;
+        }
+
+        public async Task InsertExternalWebhookReceiverStatusHistoric(ExternalWebhookReceiverStatusHistoric externalWebhookReceiverStatusHistoric)
+        {
+            _context.Set<ExternalWebhookReceiverStatusHistoric>().Add(externalWebhookReceiverStatusHistoric);
             await _context.SaveChangesAsync();
         }
     }

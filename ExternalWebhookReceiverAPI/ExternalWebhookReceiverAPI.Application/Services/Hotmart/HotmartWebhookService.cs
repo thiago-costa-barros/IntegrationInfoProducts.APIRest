@@ -9,6 +9,7 @@ using CommonSolution.Domain.Entities.Common;
 using CommonSolution.Domain.Entities.CoreSchema;
 using CommonSolution.Domain.Entities.IntegrationSchema;
 using CommonSolution.Domain.Entities.Common.Enums;
+using CommonSolution.Utils.Mappers;
 
 namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
 {
@@ -52,8 +53,14 @@ namespace ExternalWebhookReceiverAPI.Application.Services.Hotmart
                 defaultUser: defaultUser
             );
 
-            await _externalWebhookReceiverService.InsertExternalWebhookReceiver(externalWebhookReceiver);
+            ExternalWebhookReceiver newExternalWebhookReceiver = await _externalWebhookReceiverService.InsertExternalWebhookReceiver(externalWebhookReceiver);
 
+            ExternalWebhookReceiverStatusHistoric externalWebhookReceiverStatusHistoric = GenericStatusHistoricMapper.Map<ExternalWebhookReceiverStatusHistoric, ExternalWebhookReceiverStatus>(
+                entityId: newExternalWebhookReceiver.ExternalWebhookReceiverId,
+                status: newExternalWebhookReceiver.Status,
+                userId: defaultUser.DefaultUserId,
+                message: null
+            );
             return await Task.FromResult(payload);
         }
     }
