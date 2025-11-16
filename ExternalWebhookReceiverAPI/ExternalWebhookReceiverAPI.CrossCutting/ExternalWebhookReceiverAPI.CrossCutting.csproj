@@ -7,14 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExternalWebhookReceiverAPI.Application\ExternalWebhookReceiverAPI.Application.csproj" />
-    <ProjectReference Include="..\ExternalWebhookReceiverAPI.Domain\ExternalWebhookReceiverAPI.Domain.csproj" />
-    <ProjectReference Include="..\ExternalWebhookReceiverAPI.Infrastructure\ExternalWebhookReceiverAPI.Infrastructure.csproj" />
+    <Compile Remove="IoC\**" />
+    <Compile Remove="Mappings\**" />
+    <EmbeddedResource Remove="IoC\**" />
+    <EmbeddedResource Remove="Mappings\**" />
+    <None Remove="IoC\**" />
+    <None Remove="Mappings\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IoC\" />
-    <Folder Include="Mappings\" />
+    <ProjectReference Include="..\ExternalWebhookReceiverAPI.Application\ExternalWebhookReceiverAPI.Application.csproj" />
+    <ProjectReference Include="..\ExternalWebhookReceiverAPI.Domain\ExternalWebhookReceiverAPI.Domain.csproj" />
+    <ProjectReference Include="..\ExternalWebhookReceiverAPI.Infrastructure\ExternalWebhookReceiverAPI.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

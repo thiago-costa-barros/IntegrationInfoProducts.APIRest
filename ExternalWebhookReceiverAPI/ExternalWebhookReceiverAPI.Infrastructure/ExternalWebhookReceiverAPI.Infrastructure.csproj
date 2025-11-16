@@ -7,13 +7,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\ExternalWebhookReceiverAPI.Application\ExternalWebhookReceiverAPI.Application.csproj" />
-		<ProjectReference Include="..\ExternalWebhookReceiverAPI.Domain\ExternalWebhookReceiverAPI.Domain.csproj" />
+	  <Compile Remove="Config\**" />
+	  <Compile Remove="Migrations\**" />
+	  <EmbeddedResource Remove="Config\**" />
+	  <EmbeddedResource Remove="Migrations\**" />
+	  <None Remove="Config\**" />
+	  <None Remove="Migrations\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Config\" />
-		<Folder Include="Migrations\" />
+		<ProjectReference Include="..\ExternalWebhookReceiverAPI.Application\ExternalWebhookReceiverAPI.Application.csproj" />
+		<ProjectReference Include="..\ExternalWebhookReceiverAPI.Domain\ExternalWebhookReceiverAPI.Domain.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
